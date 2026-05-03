@@ -1,9 +1,25 @@
+# Python cache / test artifacts
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# Virtual environments
 .venv/
+venv/
+
+# Local secrets and API keys
 .env
+.env.*
+!.env.example
+
+# Local server logs
+*.log
 server.out.log
 server.err.log
-results/latest_results.json
-results/latest_results.csv
+
+# Generated benchmark outputs
+results/*.json
+results/*.csv
+results/*.xlsx
+results/*.html
+!results/.gitkeep
