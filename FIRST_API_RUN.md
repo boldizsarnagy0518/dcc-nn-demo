@@ -1,15 +1,17 @@
 # First API Run Guide
 
-## Recommended provider for the first run
+## Recommended provider logic
 
-Use **Google AI Studio / Gemini API** for the first live validation run.
+The project supports four providers:
 
-Reason:
+```text
+openai
+ gemini
+claude
+openrouter
+```
 
-- The current code already has a native Gemini provider.
-- No OpenRouter provider is implemented yet.
-- The project now runs mockup-only validation by default, so a full Gemini-only run is only 48 requests.
-- Gemini 2.5 Flash / Flash-Lite are suitable for low-cost POC validation.
+For normal use, Gemini is still the cleanest direct provider. If your Gemini daily quota is exhausted, OpenRouter can be used as a temporary free-model test route.
 
 ## Prompt source
 
@@ -19,7 +21,7 @@ The prompt set is stored in:
 data/prompts.json
 ```
 
-It has now been updated from the uploaded Excel benchmark file:
+It has been updated from the uploaded Excel benchmark file:
 
 ```text
 n8n_DCC.xlsx
@@ -50,24 +52,9 @@ Optional explicit version:
 uv run python import_prompts_from_excel.py path\to\n8n_DCC.xlsx --sheet PROMPTS --prompt-col A --category-col B --output data/prompts.json
 ```
 
-## Why not OpenRouter first?
-
-OpenRouter can be useful later, but it is not the best first-run option in the current codebase.
-
-Current limitation:
-
-```text
-geo_demo/providers.py supports: OpenAI, Gemini, Claude
-geo_demo/providers.py does not yet support: OpenRouter
-```
-
-To use OpenRouter, a new provider wrapper would need to be added.
-
-Also, OpenRouter free models have free-tier request limits. This can still be useful for small tests, but it is not as clean as using the already implemented Gemini provider.
-
 ## Request count
 
-The project now uses the uploaded Excel/HTML dashboard as the observed pre-mockup baseline.
+The project uses the uploaded Excel/HTML dashboard as the observed pre-mockup baseline.
 
 The API run only tests the mockup / improved corpus.
 
@@ -94,49 +81,54 @@ Copy-Item .env.example .env
 notepad .env
 ```
 
-### 2. Fill only Gemini first
-
-Recommended first setup:
+### 2A. Gemini setup
 
 ```text
-OPENAI_API_KEY=
-OPENAI_MODEL=gpt-4.1-mini
-
 GEMINI_API_KEY=your_google_ai_studio_key_here
-GEMINI_MODEL=gemini-2.5-flash
-
-ANTHROPIC_API_KEY=
-ANTHROPIC_MODEL=claude-3-5-haiku-latest
-```
-
-If you want the cheapest / fastest variant and quality is acceptable, you can try:
-
-```text
 GEMINI_MODEL=gemini-2.5-flash-lite
 ```
 
-If you use a model with strict per-minute limits, run with a delay. For example:
+Run:
 
 ```powershell
 uv run python generate_responses.py --live --models gemini --delay-seconds 7
 ```
 
-### 3. Run the live validation
+### 2B. OpenRouter free-model setup
 
-```powershell
-uv run python generate_responses.py --live --models gemini --delay-seconds 7
-```
-
-This writes:
+Use this when Gemini quota is exhausted or when you want to test an OpenRouter free model.
 
 ```text
-results/latest_results.json
-results/latest_results.csv
+OPENROUTER_API_KEY=your_openrouter_key_here
+OPENROUTER_MODEL=google/gemma-4-31b-it:free
 ```
 
-These files are intentionally ignored by git.
+OpenRouter uses one API key for all OpenRouter models. The model ID controls which model is used.
 
-### 4. Start the dashboard
+For a quick smoke test with OpenRouter, run one selected prompt from the dashboard UI, or temporarily run a small subset if you add prompt filtering later.
+
+For the full 48-prompt run:
+
+```powershell
+uv run python generate_responses.py --live --models openrouter --delay-seconds 4
+```
+
+Reason for delay:
+
+```text
+OpenRouter free models are often around 20 requests/minute.
+60 / 20 = 3 seconds/request, so 4 seconds gives a small buffer.
+```
+
+Important free-tier warning:
+
+```text
+48 requests is very close to a 50/day free limit.
+```
+
+So only run the full benchmark when the 1-prompt smoke test works.
+
+## Start the dashboard
 
 ```powershell
 uv run python dashboard.py --host 127.0.0.1 --port 8765
@@ -150,7 +142,7 @@ http://127.0.0.1:8765
 
 ## What to check after running
 
-In the answer cards, check the badge.
+In the answer cards, check the provider badge.
 
 Good:
 
@@ -164,7 +156,7 @@ Bad for validation:
 Mock fallback
 ```
 
-If you see `Mock fallback`, the API call failed. The dashboard still works, but those answers should not be treated as live LLM validation evidence.
+The latest code no longer uses API fallback in live mode. If an API call fails, the run should error instead of silently producing a fallback answer.
 
 ## Optional: old controlled A/B mode
 
