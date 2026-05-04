@@ -8,7 +8,15 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from .data import STATIC_DIR, corpus_modes, load_baseline_visibility, load_corpus, load_prompts, load_recommendations
+from .data import (
+    STATIC_DIR,
+    corpus_modes,
+    load_baseline_visibility,
+    load_corpus,
+    load_original_analysis_summary,
+    load_prompts,
+    load_recommendations,
+)
 from .env import load_dotenv
 from .providers import (
     PROVIDERS,
@@ -372,6 +380,7 @@ class DemoHandler(BaseHTTPRequestHandler):
                     "prompts": load_prompts(),
                     "recommendations": recommendation_coverage(),
                     "baseline_visibility": load_baseline_visibility(),
+                    "original_analysis": load_original_analysis_summary(),
                     "providers": provider_status(),
                     "corpus_modes": corpus_modes(),
                 },
