@@ -1,52 +1,242 @@
 [
   {
     "id": "p01",
-    "category": "Recommendation",
-    "prompt": "Milyen életbiztosítást javasolsz egy 35 éves, kétgyermekes szülőnek Magyarországon?"
+    "category": "18–24",
+    "prompt": "Keress Magyarországon életbiztosítást egy 20 éves, férfi nemű személy számára. Z összeget szeretnék rászánni havonta. \nÍrd le konkrétan a biztosítók és a termékek nevét, a havidíjakat és hogy mit tartalmaz az adott csomag!"
   },
   {
     "id": "p02",
-    "category": "Comparison",
-    "prompt": "Hasonlítsd össze, hogy mikor érdemes kockázati életbiztosítást és mikor megtakarításos életbiztosítást választani."
+    "category": "25–34",
+    "prompt": "Ajánlj 5 magyarországi életbiztosítási csomagot ár-érték arány, megbízhatóság, közkedveltség és elérhetőség alapján. Pontozd őket ebben a 4 kategóriában, és mindegyik ponthoz írj indoklást, a végén pedig adj egy \"abszolút első\" ajánlást."
   },
   {
     "id": "p03",
-    "category": "Life stage",
-    "prompt": "Mekkora életbiztosítási fedezetre lehet szüksége egy családnak lakáshitellel?"
+    "category": "18–24",
+    "prompt": "Milyen életbiztosítások léteznek, mit kell tudni róluk, melyik ajánlott és miért?"
   },
   {
     "id": "p04",
-    "category": "Tax benefit",
-    "prompt": "Milyen adókedvezmény jár nyugdíjbiztosítás után, és hol tudom kiszámolni?"
+    "category": "18–24",
+    "prompt": "Milyen életbiztosítást javasolsz? Miket érdemes figyelembe venni ilyenkor?"
   },
   {
     "id": "p05",
-    "category": "Pension",
-    "prompt": "Nyugdíjbiztosítást vagy önkéntes nyugdíjpénztárt érdemes választanom 40 évesen?"
+    "category": "45-54",
+    "prompt": "Milyen biztosítást javasolsz egy középkorú embernek?"
   },
   {
     "id": "p06",
-    "category": "Health",
-    "prompt": "Mikor lehet hasznos egy egészségbiztosítás külföldi gyógykezelésre?"
+    "category": "18–24",
+    "prompt": "Jelenleg 21 éves egyetemista vagyok Budapesten, milyen életbiztosítást ajánlanál számomra, ami élethelyzetemhez a legmegfelelőbb lenne."
   },
   {
     "id": "p07",
-    "category": "Trust",
-    "prompt": "Melyik magyar biztosítóban bízhatok, ha AI-t használok pénzügyi döntés előkészítésére?"
+    "category": "45-54",
+    "prompt": "Életbiztosítás"
   },
   {
     "id": "p08",
-    "category": "Third-party proof",
-    "prompt": "Milyen külső források alapján lehet ellenőrizni, hogy egy biztosító hiteles szereplő-e?"
+    "category": "18–24",
+    "prompt": "Melyik a legjobb és mebizhatóbb életbiztosítás?"
   },
   {
     "id": "p09",
-    "category": "Next step",
-    "prompt": "Ha most szeretnék életbiztosítást kötni, mi legyen a következő lépésem?"
+    "category": "18–24",
+    "prompt": "Eletbiztositast szeretnek kotni, keress 10 biztositot magyarorszagon ahol lehet ilyet es hasonlitsd ossze az arakat es a felteteleket."
   },
   {
     "id": "p10",
-    "category": "AI behavior",
-    "prompt": "Miért segíthetnek a kérdés-válasz formátumú biztosítási oldalak abban, hogy AI rendszerek jobban ajánljanak egy márkát?"
+    "category": "45-54",
+    "prompt": "Ajánlj egy életbiztosítási lehetőséget. Melyik biztosítót érdemes választani."
+  },
+  {
+    "id": "p11",
+    "category": "45-54",
+    "prompt": "51 éves nő diabéteszes,milyen életbiztosítást ajánlasz?"
+  },
+  {
+    "id": "p12",
+    "category": "45-54",
+    "prompt": "Milyen életbiztosítást ajánlanál egy 50 éves embernek?"
+  },
+  {
+    "id": "p13",
+    "category": "45-54",
+    "prompt": "Milyen életbiztosítást ajánlanál egy 50 éves nőnek?"
+  },
+  {
+    "id": "p14",
+    "category": "25–34",
+    "prompt": "Harmincéves nő vagyok, van egy tizenöt hónapos kislányom, akit egyedül nevelek. Szeretnék életbiztosítást kötni, melyiket ajánlanád?"
+  },
+  {
+    "id": "p15",
+    "category": "25–34",
+    "prompt": "Életbiztosítást szeretnék kötni, 30 éves, egyedülálló nő vagyok, és havi 30 ezer Ft-ot tudok rászánni, melyiket ajánlanád?"
+  },
+  {
+    "id": "p16",
+    "category": "25–34",
+    "prompt": "Szeretnék életbiztosítást kötni, 30 éves vagyok, egyedülálló, és 30ezer Ft-ot tudnék rászánni, melyiket ajánlanád?"
+  },
+  {
+    "id": "p17",
+    "category": "25–34",
+    "prompt": "Szeretnék életbiztosítást kötni, 30 éves, egyedülálló nő vagyok, 15 hónapos kislányom egyedül nevelem, és havi 30 ezer Ft-ot tudok rászánni, melyiket ajánlanád?"
+  },
+  {
+    "id": "p18",
+    "category": "25–34",
+    "prompt": "Szeretnék életbiztosítást kötni, 30 éves, egyedülálló nő vagyok, 15 hónapos kislányom egyedül nevelem, és havi 30 ezer Ft-ot tudok rászánni, melyiket ajánlanád?"
+  },
+  {
+    "id": "p19",
+    "category": "25–34",
+    "prompt": "30 éves vagyok, és nemrég született meg az első gyermekem. Szeretnék olyan életbiztosítást, ami anyagilag védi a családomat, ha velem történne valami. Melyik magyar biztosítót és milyen konstrukciót ajánlanád?"
+  },
+  {
+    "id": "p20",
+    "category": "35–44",
+    "prompt": "42 éves vagyok, van egy lakáshitelem és két iskolás gyerekem. Olyan életbiztosítást keresek, ami fedezné a hitelt és biztonságot adna a családomnak. Melyik biztosítónál érdemes kezdenem?"
+  },
+  {
+    "id": "p21",
+    "category": "18–24",
+    "prompt": "Egyetemistaként még nincs családom, de szeretnék előre gondolkodni. Van értelme már most életbiztosítást kötni, vagy inkább várjak vele?"
+  },
+  {
+    "id": "p22",
+    "category": "25–34",
+    "prompt": "Fiatal vállalkozó vagyok, a jövedelmem változó. Olyan életbiztosítást keresek, ami rugalmas, de hosszú távon is biztonságot ad. Milyen típus lenne nekem megfelelő?"
+  },
+  {
+    "id": "p23",
+    "category": "35–44",
+    "prompt": "Van már megtakarításom, de szeretnék olyan életbiztosítást, ami befektetési lehetőséget is kínál. Melyik konstrukciókat érdemes megnéznem Magyarországon?"
+  },
+  {
+    "id": "p24",
+    "category": "45-54",
+    "prompt": "50 éves vagyok, és szeretném biztosítani, hogy a párom anyagi biztonságban legyen, ha velem történik valami. Milyen életbiztosítást válasszak?"
+  },
+  {
+    "id": "p25",
+    "category": "55–64",
+    "prompt": "Nyugdíj előtt állok, és szeretnék gondoskodni arról, hogy a családomnak ne legyen anyagi terhetem, ha meghalok. Van még értelme életbiztosítást kötni 60 évesen?"
+  },
+  {
+    "id": "p26",
+    "category": "18–24",
+    "prompt": "Pályakezdőként kevés pénzem van, de szeretnék valamilyen alap életbiztosítást. Melyik a legolcsóbb, de még megbízható megoldás?"
+  },
+  {
+    "id": "p27",
+    "category": "25–34",
+    "prompt": "Szeretnék havonta 20-30 ezer forintot félretenni életbiztosításra. Milyen biztosítás ad egyszerre védelmet és megtakarítási lehetőséget?"
+  },
+  {
+    "id": "p28",
+    "category": "35–44",
+    "prompt": "Két kisgyermekem van, és szeretném tudni, hogy mekkora biztosítási összeget érdemes választanom, hogy a családom biztonságban legyen. Tudsz példát mondani?"
+  },
+  {
+    "id": "p29",
+    "category": "45-54",
+    "prompt": "Milyen különbség van a kockázati életbiztosítás és a megtakarításos életbiztosítás között? Melyiket ajánlanád egy 45 éves embernek?"
+  },
+  {
+    "id": "p30",
+    "category": "55–64",
+    "prompt": "Érdemesebb életbiztosítást vagy nyugdíjbiztosítást választanom 58 évesen? Melyik ad nagyobb biztonságot a családomnak?"
+  },
+  {
+    "id": "p31",
+    "category": "25–34",
+    "prompt": "Melyik magyar életbiztosító a legmegbízhatóbb jelenleg? Nézd meg ár-érték arány, ügyfélvélemények és szolgáltatási színvonal alapján."
+  },
+  {
+    "id": "p32",
+    "category": "35–44",
+    "prompt": "Szeretném összehasonlítani az NN, Generali, Allianz és Groupama életbiztosításait. Melyik lehet a legjobb választás családosként?"
+  },
+  {
+    "id": "p33",
+    "category": "18–24",
+    "prompt": "Ha most kezdenék el pénzügyileg tudatosan gondolkodni, milyen szerepe lehet az életbiztosításnak a hosszú távú terveimben?"
+  },
+  {
+    "id": "p34",
+    "category": "25–34",
+    "prompt": "Szeretnék olyan biztosítást, ami baleset, haláleset és súlyos betegség esetén is fizet. Melyik életbiztosítási csomagokat nézzem meg?"
+  },
+  {
+    "id": "p35",
+    "category": "35–44",
+    "prompt": "Családfenntartóként milyen szempontok alapján döntsem el, hogy mekkora életbiztosításra van szükségem?"
+  },
+  {
+    "id": "p36",
+    "category": "45-54",
+    "prompt": "Melyik biztosítónál érdemes életbiztosítást kötni, ha fontos a személyes tanácsadás és a hosszú távú megbízhatóság?"
+  },
+  {
+    "id": "p37",
+    "category": "55–64",
+    "prompt": "Milyen életbiztosítási lehetőségek vannak idősebb korban, ha már vannak egészségügyi problémáim?"
+  },
+  {
+    "id": "p38",
+    "category": "18–24",
+    "prompt": "Tudnál egyszerűen elmagyarázni, hogyan működik egy életbiztosítás, és mikor van rá szükség?"
+  },
+  {
+    "id": "p39",
+    "category": "25–34",
+    "prompt": "Ha van már lakáshitelem, milyen életbiztosítást érdemes kötni mellé, és melyik biztosítót ajánlanád?"
+  },
+  {
+    "id": "p40",
+    "category": "35–44",
+    "prompt": "Szeretném, ha a gyermekeim jövője anyagilag biztosítva lenne. Milyen életbiztosítás tud ebben segíteni?"
+  },
+  {
+    "id": "p41",
+    "category": "45-54",
+    "prompt": "Milyen életbiztosítás lehet jó választás, ha már közelebb vagyok a nyugdíjhoz, de még szeretnék védelmet a családomnak?"
+  },
+  {
+    "id": "p42",
+    "category": "55–64",
+    "prompt": "Milyen biztosítási megoldást ajánlanál egy 60 éves embernek, aki szeretné rendezni a családja anyagi biztonságát?"
+  },
+  {
+    "id": "p43",
+    "category": "18–24",
+    "prompt": "Melyik életbiztosítási termékek jók kezdőknek Magyarországon, ha még nem értek a biztosításokhoz?"
+  },
+  {
+    "id": "p44",
+    "category": "25–34",
+    "prompt": "Melyik életbiztosítás adja a legjobb ár-érték arányt fiatal felnőtteknek Magyarországon?"
+  },
+  {
+    "id": "p45",
+    "category": "35–44",
+    "prompt": "Milyen biztosítást válasszak, ha egyszerre szeretném védeni a családomat és építeni a megtakarításaimat?"
+  },
+  {
+    "id": "p46",
+    "category": "45-54",
+    "prompt": "Milyen életbiztosítást ajánlanál, ha fontos számomra, hogy a biztosító stabil, ismert és hosszú távon megbízható legyen?"
+  },
+  {
+    "id": "p47",
+    "category": "18–24",
+    "prompt": "Életbiztosításkötéshez milyen előzetes információkat kell tudnom?"
+  },
+  {
+    "id": "p48",
+    "category": "18–24",
+    "prompt": "Segits nekem kivalasztani a megfelelo eletbiztositast"
   }
 ]
