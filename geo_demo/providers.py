@@ -23,6 +23,12 @@ PROVIDERS = {
         "env_model": "ANTHROPIC_MODEL",
         "default_model": "claude-3-5-haiku-latest",
     },
+    "openrouter": {
+        "label": "OpenRouter",
+        "env_key": "OPENROUTER_API_KEY",
+        "env_model": "OPENROUTER_MODEL",
+        "default_model": "google/gemma-4-31b-it:free",
+    },
 }
 
 
@@ -165,6 +171,53 @@ def call_claude(prompt):
     raise ProviderError("Claude response did not contain text output")
 
 
+def call_openrouter(prompt):
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if not api_key:
+        raise ProviderError("OPENROUTER_API_KEY is not configured")
+    model = os.getenv("OPENROUTER_MODEL", PROVIDERS["openrouter"]["default_model"])
+    payload = {
+        "model": model,
+        "temperature": 0.2,
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "You are a careful Hungarian executive-consulting style assistant. "
+                    "Use only the controlled sources provided by the user prompt."
+                ),
+            },
+            {"role": "user", "content": prompt},
+        ],
+    }
+    response = _post_json(
+        "https://openrouter.ai/api/v1/chat/completions",
+        {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://github.com/boldizsarnagy0518/DCC_NN",
+            "X-Title": "NN GEO Recommendation Impact Simulator",
+        },
+        payload,
+    )
+    choices = response.get("choices", [])
+    if not choices:
+        raise ProviderError("OpenRouter response did not contain choices")
+    message = choices[0].get("message", {})
+    text = message.get("content")
+    if isinstance(text, list):
+        chunks = []
+        for part in text:
+            if isinstance(part, dict) and part.get("text"):
+                chunks.append(part["text"])
+            elif isinstance(part, str):
+                chunks.append(part)
+        text = "\n".join(chunks)
+    if text:
+        return text
+    raise ProviderError("OpenRouter response did not contain text output")
+
+
 def call_provider(provider_id, prompt):
     if provider_id == "openai":
         return call_openai(prompt)
@@ -172,6 +225,8 @@ def call_provider(provider_id, prompt):
         return call_gemini(prompt)
     if provider_id == "claude":
         return call_claude(prompt)
+    if provider_id == "openrouter":
+        return call_openrouter(prompt)
     raise ProviderError(f"Unknown provider: {provider_id}")
 
 
@@ -183,6 +238,7 @@ def mock_answer(provider_id, user_prompt, sources, corpus_mode):
         "openai": "Rövid válasz",
         "gemini": "Összehasonlító válasz",
         "claude": "Óvatos, döntéstámogató válasz",
+        "openrouter": "OpenRouter válasz",
     }.get(provider_id, "Válasz")
 
     if corpus_mode == "current":
