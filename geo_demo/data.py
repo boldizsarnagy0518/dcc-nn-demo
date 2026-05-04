@@ -26,6 +26,10 @@ def load_baseline_visibility():
     return load_json("baseline_visibility.json")
 
 
+def load_original_analysis_summary():
+    return load_json("original_analysis_summary.json")
+
+
 def load_corpus(mode):
     if mode not in {"current", "improved"}:
         raise ValueError(f"Unknown corpus mode: {mode}")
