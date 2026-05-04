@@ -106,22 +106,15 @@ def run_single(prompt_item, corpus_mode, provider_id, use_live=False):
     corpus = load_corpus(corpus_mode)
     sources = retrieve_sources(prompt_item["prompt"], corpus, limit=5)
     grounded_prompt = build_grounded_prompt(prompt_item["prompt"], sources)
-    provider_mode = "mock"
-    run_mode = "mock"
-    error = None
 
     if use_live:
-        try:
-            answer = call_provider(provider_id, grounded_prompt)
-            provider_mode = "api"
-            run_mode = "api_controlled_sources"
-        except ProviderError as exc:
-            answer = mock_answer(provider_id, prompt_item["prompt"], sources, corpus_mode)
-            provider_mode = "mock_fallback"
-            run_mode = "api_failed_mock_fallback"
-            error = str(exc)
+        answer = call_provider(provider_id, grounded_prompt)
+        provider_mode = "api"
+        run_mode = "api_controlled_sources"
     else:
         answer = mock_answer(provider_id, prompt_item["prompt"], sources, corpus_mode)
+        provider_mode = "mock"
+        run_mode = "local_mock"
 
     return {
         "prompt_id": prompt_item["id"],
@@ -139,7 +132,7 @@ def run_single(prompt_item, corpus_mode, provider_id, use_live=False):
         "link_recommendations": extract_link_recommendations(answer, sources),
         "retrieved_sources": [compact_source(source) for source in sources],
         "scores": score_answer(answer, sources),
-        "error": error,
+        "error": None,
     }
 
 
@@ -415,7 +408,7 @@ class DemoHandler(BaseHTTPRequestHandler):
                     "results": results,
                     "summary": summarize_results(results),
                     "cached": True,
-                    "source": "generated-fallback",
+                    "source": "local-mock-generated",
                 },
             )
             return
@@ -452,6 +445,8 @@ class DemoHandler(BaseHTTPRequestHandler):
                     "provider_status": provider_status(),
                 },
             )
+        except ProviderError as exc:
+            json_response(self, {"error": str(exc), "type": "provider_error"}, status=502)
         except (ValueError, KeyError, json.JSONDecodeError) as exc:
             json_response(self, {"error": str(exc)}, status=400)
 
