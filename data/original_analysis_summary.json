@@ -1,0 +1,91 @@
+{
+  "title": "Original baseline analysis",
+  "source_file": "NN_Analysis.html",
+  "source_description": "Statistical analysis generated from n8n_DCC.xlsx / Answers worksheet",
+  "analysis_date": "2026-04-24",
+  "scope": {
+    "prompts": 48,
+    "models": 3,
+    "answers": 144,
+    "models_tested": ["OpenAI / ChatGPT", "Google / Gemini", "Anthropic / Claude"]
+  },
+  "headline": "NN Insurance is the most frequently mentioned insurer in the tested AI answers.",
+  "strategic_reading": "NN starts from a strong AI visibility position: it ranks first by raw mention volume and appears in a largely positive context. However, model-level and prompt-level behavior differs, and competitors are still close. The next opportunity is to improve the quality of presence: make NN more product-specific, more credible, more citable and more actionable.",
+  "kpis": [
+    {
+      "label": "Total NN mentions",
+      "value": "223",
+      "sub": "#1 among tested insurers"
+    },
+    {
+      "label": "Share of Voice",
+      "value": "~13%",
+      "sub": "of all insurer mentions"
+    },
+    {
+      "label": "Prompt coverage",
+      "value": "32/48",
+      "sub": "prompts mention NN at least once"
+    },
+    {
+      "label": "Positive / negative",
+      "value": "210 / 6",
+      "sub": "keyword-level context"
+    }
+  ],
+  "insurer_mentions": [
+    {"insurer": "NN", "mentions": 223},
+    {"insurer": "UNIQA", "mentions": 202},
+    {"insurer": "Generali", "mentions": 181},
+    {"insurer": "Allianz", "mentions": 179},
+    {"insurer": "CIG Pannonia", "mentions": 162},
+    {"insurer": "Aegon / Alfa", "mentions": 144},
+    {"insurer": "Groupama", "mentions": 137}
+  ],
+  "prompt_level_presence": {
+    "nn_total_model_prompt_presence": 64,
+    "nn_unique_prompt_coverage": 32,
+    "model_outputs": 144,
+    "model_breakdown": [
+      {
+        "model": "OpenAI / ChatGPT",
+        "nn_presence": 21,
+        "competitor_average": 11.0,
+        "multiple_vs_competitor_average": 1.9
+      },
+      {
+        "model": "Google / Gemini",
+        "nn_presence": 24,
+        "competitor_average": 10.1,
+        "multiple_vs_competitor_average": 2.4
+      },
+      {
+        "model": "Anthropic / Claude",
+        "nn_presence": 19,
+        "competitor_average": 10.5,
+        "multiple_vs_competitor_average": 1.8
+      }
+    ]
+  },
+  "model_readout": [
+    {
+      "model": "OpenAI / ChatGPT",
+      "interpretation": "Often mentions NN in generic, list-based answers. Useful for awareness, but less product-specific."
+    },
+    {
+      "model": "Google / Gemini",
+      "interpretation": "Produces the richest NN context in the original benchmark, including more product-specific and price/fee-related references."
+    },
+    {
+      "model": "Anthropic / Claude",
+      "interpretation": "Mentions NN often, but many mentions appear in neutral tables or comparative structures with lower product detail."
+    }
+  ],
+  "limitations": [
+    "Sentiment is keyword-based, not a full contextual sentiment interpretation.",
+    "Shared lists do not always imply a true recommendation.",
+    "The prompt set influences model behavior.",
+    "Repeated Google narratives may inflate some repeated mention patterns."
+  ],
+  "deck_takeaway": "NN is already visible, but visibility alone is not enough. The recommendations should focus on turning mentions into product-specific, credible and actionable next steps."
+}
