@@ -1,8 +1,9 @@
 import argparse
 import json
+import time
 from datetime import datetime, timezone
 
-from geo_demo.data import RESULTS_DIR
+from geo_demo.data import RESULTS_DIR, load_prompts
 from geo_demo.env import load_dotenv
 from geo_demo.providers import PROVIDERS
 from geo_demo.server import results_to_csv, run_benchmark, summarize_results
@@ -21,22 +22,76 @@ def parse_args():
             "pre-mockup baseline is imported from the manual Excel/HTML benchmark."
         ),
     )
+    parser.add_argument(
+        "--delay-seconds",
+        type=float,
+        default=0,
+        help=(
+            "Optional delay between provider calls. Useful for free-tier rate limits, "
+            "for example Gemini API RPM limits. Recommended: 5 for Flash-Lite, 7 for Flash."
+        ),
+    )
     parser.add_argument("--output", default=str(RESULTS_DIR / "latest_results.json"))
     parser.add_argument("--csv-output", default=str(RESULTS_DIR / "latest_results.csv"))
     return parser.parse_args()
+
+
+def planned_request_count(models, corpus_mode):
+    corpus_count = 2 if corpus_mode == "both" else 1
+    return len(load_prompts()) * len(models) * corpus_count
+
+
+def run_benchmark_with_optional_delay(models, corpus_mode, use_live, delay_seconds):
+    if not use_live or delay_seconds <= 0:
+        return run_benchmark(models=models, corpus_mode=corpus_mode, use_live=use_live)
+
+    prompts = load_prompts()
+    results = []
+    total = planned_request_count(models, corpus_mode)
+    done = 0
+    corpus_modes = ["current", "improved"] if corpus_mode == "both" else [corpus_mode]
+
+    for prompt in prompts:
+        for mode in corpus_modes:
+            for model in models:
+                done += 1
+                print(f"[{done}/{total}] Running {model} | {mode} | {prompt['id']}...")
+                results.extend(
+                    run_benchmark(
+                        prompt_ids=[prompt["id"]],
+                        models=[model],
+                        corpus_mode=mode,
+                        use_live=use_live,
+                    )
+                )
+                if done < total:
+                    print(f"Waiting {delay_seconds:g}s to avoid provider rate limits...")
+                    time.sleep(delay_seconds)
+    return results
 
 
 def main():
     load_dotenv()
     args = parse_args()
     models = [item.strip() for item in args.models.split(",") if item.strip()]
-    results = run_benchmark(models=models, corpus_mode=args.corpus_mode, use_live=args.live)
+
+    request_count = planned_request_count(models, args.corpus_mode)
+    print(f"Planned provider calls: {request_count}")
+    print(f"Delay between calls: {args.delay_seconds:g}s")
+
+    results = run_benchmark_with_optional_delay(
+        models=models,
+        corpus_mode=args.corpus_mode,
+        use_live=args.live,
+        delay_seconds=args.delay_seconds,
+    )
     summary = summarize_results(results)
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "use_live": args.live,
         "models": models,
         "corpus_mode": args.corpus_mode,
+        "delay_seconds": args.delay_seconds,
         "baseline_source": "observed_manual_excel_html_benchmark",
         "results": results,
         "summary": summary,
