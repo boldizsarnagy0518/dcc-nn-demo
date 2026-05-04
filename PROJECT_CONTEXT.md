@@ -2,645 +2,545 @@
 
 ## 1. One-sentence summary
 
-This repository contains a proof-of-concept dashboard for the NN Hungary GenAI visibility / GEO case. It validates whether the team's actionable GEO recommendations could help NN move from being merely mentioned in AI answers to being cited, linked and recommended as an actionable next step.
+This repository contains a proof-of-concept dashboard for the NN Hungary GenAI visibility / GEO case. It combines an observed baseline analysis from the original 48-prompt benchmark with a post-mockup validation run that tests whether NN's actionable GEO recommendations can make AI-style answers more specific, credible, citable and actionable.
 
 ---
 
-## 2. Business context
+## 2. Case and business context
 
-### Client / case setting
+This project was built for a Deloitte Consulting Course case about **NN Hungary** and its visibility in the emerging GenAI search environment.
 
-The project is built for a Deloitte Consulting Course case about **NN Hungary** and its visibility in the emerging GenAI search environment.
+The strategic problem is that consumer search behaviour is shifting from traditional keyword-based search toward conversational AI-driven search. Users increasingly ask ChatGPT, Gemini, Claude, Perplexity, AI Overviews or similar tools questions such as:
 
-The core business problem is that consumer search behaviour is shifting from traditional keyword-based search toward conversational AI-driven search. Users increasingly ask tools like ChatGPT, Gemini, Claude, Perplexity or AI Overviews questions such as:
-
-- "What is the best life insurance in Hungary?"
-- "How much life insurance does my family need?"
+- "What life insurance should I choose in Hungary?"
+- "Which insurer is reliable?"
+- "How much life insurance coverage does my family need?"
 - "Which pension insurance offers tax benefits?"
 - "Which insurer should I compare before making a decision?"
 
-In this new search environment, being ranked on a traditional search results page is no longer sufficient. NN needs to be present inside the AI-generated answer itself, ideally as a credible, cited and actionable recommendation.
-
-### Strategic problem
-
-The case is not simply about increasing website traffic or generic brand awareness. The key issue is that AI systems may reduce the user's need to browse multiple pages manually. If NN is not included in the AI answer, NN may not even enter the user's consideration set.
+In this environment, ranking on a traditional Google search result page is no longer enough. NN needs to be present inside AI-generated answers, ideally as a trusted, cited and actionable next step.
 
 The strategic shift is:
 
 ```text
 From SEO: ranking in search results
-To GEO: being retrieved, cited and recommended by generative AI systems
+To GEO: being retrieved, understood, cited and recommended by generative AI systems
 ```
 
-The strategic objective is:
+Core strategic objective:
 
-> Make NN the most trusted, AI-citable insurance source in Hungary, then convert that visibility into measurable business results.
+> Make NN easier for AI systems to find, understand, trust, cite and recommend as the next step.
 
 ---
 
-## 3. What the project is about
+## 3. Expected communication style
 
-This project is a **GEO recommendation impact simulator**.
+When supporting the project, use a senior strategy-consulting style:
 
-It does not attempt to fully recreate the live public web or claim that it measures real-time public ChatGPT/Gemini/Claude ranking. Instead, it validates the potential impact of the team's proposed NN GEO assets under controlled conditions.
+- clear and structured;
+- executive-friendly;
+- business-focused;
+- suitable for a client presentation to NN;
+- focused on overview-level recommendations, not overly detailed implementation specs;
+- aligned with a 0-3 year recommendation roadmap;
+- not overclaiming beyond what the POC proves.
 
-The project combines two layers:
+Use English for slide titles, slide text, dashboards, README text and recommendation labels unless the user asks otherwise. Use Hungarian when preparing speaking notes or explaining to the team.
 
-1. **Observed pre-mockup AI visibility baseline**  
-   A manually collected benchmark from 48 Hungarian insurance prompts across three major AI model families.
+Avoid an obviously AI-generated tone. Prefer natural, presentation-ready language.
 
-2. **Controlled recommendation mockup validation**  
-   A dashboard that compares GenAI-style answers with and without mocked recommendation assets.
+---
 
-The central question is:
+## 4. Current project positioning
+
+The project should be positioned as:
 
 ```text
-Can the recommended NN GEO assets increase NN's GenAI presence, explicit citations/links and answer actionability?
+NN GEO Recommendation Impact Simulator
+```
+
+Best one-sentence description:
+
+> This POC validates whether NN's actionable GEO recommendations can improve GenAI-style answer quality by making answers more specific, credible, citable and actionable.
+
+Important: this is **not** a real-time public web visibility tracker.
+
+The dashboard does not claim to measure live public ChatGPT, Gemini or Claude rankings. It validates recommendation impact under controlled conditions.
+
+The safest wording is:
+
+> The POC demonstrates under controlled conditions that the recommended NN assets can improve AI-style answer quality, citations and actionability.
+
+Avoid claiming:
+
+```text
+This proves NN will rank higher in public ChatGPT/Gemini/Claude.
 ```
 
 ---
 
-## 4. Observed baseline
+## 5. Current methodology
 
-Before creating the mockup assets, the team ran a manual benchmark.
+The project now uses a two-part methodology.
 
-### Benchmark setup
+### 1. Original baseline analysis
 
-- 48 Hungarian insurance-related prompts were tested.
-- 3 major model families were queried:
-  - OpenAI / ChatGPT
-  - Google / Gemini
-  - Anthropic / Claude
-- Total model-prompt outputs: 144
+The original baseline is not generated again by the API. It comes from the manually collected benchmark and the uploaded statistical analysis.
 
-### Baseline metrics
+Source files / data:
+
+```text
+n8n_DCC.xlsx
+NN_Analysis.html
+data/baseline_visibility.json
+data/original_analysis_summary.json
+```
+
+Benchmark setup:
+
+- 48 Hungarian life-insurance-related prompts;
+- 3 model families;
+- 144 total model-prompt outputs.
+
+Main baseline metrics:
 
 | Metric | Observed baseline |
 |---|---:|
 | Prompts tested | 48 |
+| AI models | 3 |
 | Model outputs | 144 |
+| Total NN mentions | 223 |
 | NN prompt-level presence | 64 / 144 |
 | NN unique prompt coverage | 32 / 48 |
 | NN vs competitor average | 2.0× |
 | Explicit NN cite/link references | 5 / 144 |
+| Positive / negative keyword context | 210 / 6 |
+| Approx. share of voice | ~13% |
 
-### Strategic interpretation
+Strategic interpretation:
 
-NN already has a relatively strong baseline in AI-generated answers. It is not invisible. However, the current presence is often not actionable enough.
+> NN is already visible in GenAI answers, but the next opportunity is to make this visibility more product-specific, more credible, more citable and more actionable.
 
-The key insight is:
+### 2. Post-mockup validation run
 
-> NN is already mentioned, but it is not cited, linked and recommended often enough.
+The API run only tests the **improved / mockup corpus**.
 
-Therefore, the project should not only aim to increase mentions. It should help NN turn brand visibility into actionable visibility:
-
-```text
-NN is mentioned
-→ NN is cited
-→ NN is linked
-→ NN is chosen as the next step
-```
-
----
-
-## 5. Project goal
-
-The goal of the project is to validate the potential impact of the actionable GEO recommendations by testing whether mocked recommendation assets improve AI-style answers.
-
-### Primary goal
-
-Validate whether NN's proposed GEO assets can:
-
-- increase NN prompt-level presence;
-- increase explicit `nn.hu` citations and links;
-- improve product specificity;
-- improve credibility;
-- improve actionability;
-- direct users toward calculators, product pages, decision guides, research assets and advisor handoff paths.
-
-### Not the primary goal
-
-The current project is **not** a full live web monitoring platform.
-
-It does not claim to answer:
-
-- how public ChatGPT ranks NN today in all possible user contexts;
-- whether Gemini's live Google Search grounding currently cites NN;
-- whether Claude's web search currently prefers NN over all competitors;
-- whether NN has guaranteed future public AI ranking improvement.
-
-Those could become future extensions, but they are not the core POC.
-
----
-
-## 6. Core methodology
-
-The dashboard uses a controlled before/after structure.
-
-### Without recommendation mockups
-
-This run uses a current-like source environment. It represents NN/public content as it exists directionally today, with weaker Q&A structure, weaker citation paths and weaker next-step signals.
-
-### With recommendation mockups
-
-This run uses the same prompt/model setup but adds mocked GEO assets based on the recommendations.
-
-Examples of mocked assets:
-
-- conversational product Q&A pages;
-- life insurance need estimator;
-- pension gap and SZJA benefit calculators;
-- health insurance decision-support calculator;
-- Hungarian AI-finance research report;
-- third-party credibility snippets;
-- entity/schema and Wikidata-style identity mock;
-- decision-guide pages;
-- competitor benchmark snippets.
-
-### Why this is controlled
-
-The same prompt and model label are used in both conditions. Only the available source environment changes.
-
-This isolates the effect of the proposed recommendation assets.
+Current default logic:
 
 ```text
-Same prompt
-+ same model / model label
-+ current-like source environment
-= baseline answer
-
-Same prompt
-+ same model / model label
-+ current-like source environment + recommendation mockup assets
-= improved answer
+Observed baseline = manual benchmark / Excel / HTML analysis
+API validation = mockup-only improved corpus
 ```
 
-This makes the POC defensible because the goal is recommendation validation, not live web ranking measurement.
+Therefore the default full run is:
+
+```text
+48 prompts × 1 corpus mode × 1 model = 48 provider calls
+```
+
+Not:
+
+```text
+48 prompts × 2 corpus modes × 1 model = 96 provider calls
+```
+
+This keeps the run cheaper and fits the actual case story better, because the pre-mockup baseline already exists.
 
 ---
 
-## 7. Why websearch is intentionally not required
+## 6. Why websearch is intentionally not required
 
-The project intentionally does not require paid websearch APIs for the core POC.
+The core POC intentionally does not use paid websearch APIs.
 
 Reason:
 
-> The purpose is to isolate the impact of the proposed NN assets, not to introduce live web ranking noise.
+> The purpose is to isolate the impact of NN's proposed recommendation assets, not to introduce live-web ranking noise.
 
 If live websearch were added too early, the test would depend on:
 
 - changing search results;
-- crawler behaviour;
 - search index freshness;
+- crawler behaviour;
 - competitor page updates;
 - provider-specific grounding behaviour;
-- API cost and rate limits;
-- inconsistent citations.
+- inconsistent citations;
+- API cost and rate limits.
 
-For this POC, the stronger logic is:
+For the current POC, the stronger logic is:
 
 ```text
-Observed baseline
+Real observed baseline
 → recommended mockup assets
-→ controlled LLM answer comparison
+→ controlled LLM answer generation
 → measurable uplift in mentions, links and actionability
 ```
 
-A future version can add search-grounded APIs and live monitoring, but this is separate from the current recommendation impact simulator.
+Future versions can add search-grounded APIs and live monitoring, but those are extensions, not core requirements.
 
 ---
 
-## 8. Mock mode vs live API mode
+## 7. What the dashboard should show
 
-This distinction is very important.
+The intended dashboard structure is now two main blocks:
 
-### Mock/local mode
+### Block 1 — Original baseline analysis
 
-Mock mode uses deterministic local fallback answers generated by the project code. It is useful for:
+Based on `n8n_DCC.xlsx`, `NN_Analysis.html`, `data/baseline_visibility.json` and `data/original_analysis_summary.json`.
 
-- testing the dashboard;
-- testing scoring logic;
-- checking UI behaviour;
-- running the demo without API keys;
-- presentation backup if live API calls fail.
+It should show:
 
-Mock mode is **not** strong evidence of actual LLM behaviour.
+- 48 prompts;
+- 3 models;
+- 144 outputs;
+- NN as the most frequently mentioned insurer;
+- 223 NN mentions;
+- ~13% share of voice;
+- 64 / 144 NN prompt-level presences;
+- 32 / 48 prompt coverage;
+- 5 / 144 explicit NN cite/link references;
+- model-level readout:
+  - OpenAI / ChatGPT: more generic, list-based NN mentions;
+  - Gemini: richest NN context in the original benchmark;
+  - Claude: frequent but often more neutral/table-like mentions.
 
-### Live API controlled-source mode
+Baseline message:
 
-Live API mode calls actual LLM provider APIs, but still passes the controlled source package to them. The models do not browse the public web in this version.
+> NN starts from a strong visibility position, but visibility alone is not enough.
 
-This is the proper recommendation-impact validation mode, because the answers are generated by a real LLM.
+### Block 2 — Post-mockup validation analysis
 
-Recommended low-cost validation setup:
+Based on live provider outputs generated from `data/corpus_improved.json`.
 
-```powershell
-uv run python generate_responses.py --live --models gemini
-uv run python dashboard.py --host 127.0.0.1 --port 8765
-```
+It should show:
 
-In the dashboard, the answer badge should show:
+- mockup answer quality score;
+- NN mentions in the post-mockup run;
+- explicit NN links/citations;
+- link/cite uplift versus the observed baseline of 5 explicit NN cite/link references;
+- next-step destination mix;
+- prompt-level mockup coverage;
+- recommendation coverage;
+- retrieved mockup source evidence;
+- provider mode.
+
+Post-mockup message:
+
+> The mockup run tests whether the recommended NN assets can turn AI visibility into cited, linked and actionable next steps.
+
+---
+
+## 8. Important implementation decision: no live API fallback
+
+Live API mode should not silently fallback to mock answers.
+
+Current intended behaviour:
 
 ```text
-API - controlled sources
+Live API success → provider_mode = api
+Live API error → error is raised
 ```
 
-If the badge shows:
+Do not mix real API answers with fallback mock answers in an evidence run.
+
+A local mock mode can still exist for UI testing, but it is not validation evidence.
+
+Good evidence run:
 
 ```text
-Mock fallback
+48 results
+48 provider_mode = api
+0 fallback rows
 ```
 
-then the provider call failed and the result should not be treated as LLM validation evidence.
+Bad evidence run:
+
+```text
+Some api rows + some mock_fallback rows
+```
+
+If a run contains fallback rows, it should be treated as partial / invalid for final validation.
 
 ---
 
-## 9. Strategic pillars
+## 9. Strategic framework
 
-The full GEO agenda is structured around four pillars.
+Use this four-part GEO logic:
 
-### 1. Discoverability
+1. **Discoverability** — NN must be easy to find.
+2. **Clarity** — NN must be easy to understand.
+3. **Credibility** — NN must be easy to cite.
+4. **Actionability** — NN must give users a clear next step.
 
-AI systems must be able to discover NN content quickly and reliably.
+The key strategic upgrade is **Actionability**.
 
-Examples:
+Explanation:
 
-- robots.txt hygiene;
-- sitemap freshness;
-- IndexNow;
-- llms.txt pilot;
-- structured discoverability signals.
-
-### 2. Clarity
-
-NN pages need to answer real user questions in extractable blocks.
-
-Examples:
-
-- conversational headings;
-- FAQ-style content;
-- 40-60 word direct answers;
-- structured Q&A pages;
-- FAQPage schema where appropriate.
-
-### 3. Credibility
-
-NN needs trusted corroboration beyond its own website.
-
-Examples:
-
-- comparison platforms;
-- financial media;
-- regulatory / industry proof;
-- independent citations;
-- original research;
-- entity records.
-
-### 4. Actionability
-
-AI answers should lead users to an NN-owned next step.
-
-Examples:
-
-- calculators;
-- guides;
-- quote flows;
-- product pages;
-- advisor handoff;
-- personalized next-best-action.
+> Visibility only creates business value if users know what to do next. It is not enough for AI to mention NN in a list. The stronger outcome is when AI can guide users toward an NN calculator, guide, quote request, product page or advisor handoff.
 
 ---
 
-## 10. Actionable recommendations
+## 10. Current actionable recommendations
 
-The current recommendation set contains ten actions.
+The recommendation roadmap contains ten actions.
 
 ### R1 — Rebuild key product pages around conversational search
 
-Horizon: 0-3 months  
-Pillar: Clarity  
-Priority: High
+**Horizon:** 0-3 months  
+**Pillar:** Clarity  
+**Priority:** High
 
-Objective:
+NN should redesign priority product pages around natural-language questions users would ask AI systems.
 
-Make NN's answer blocks easier for AI systems to retrieve, extract and cite.
+Examples:
 
-Mockup validation signal:
+- "Mi az életbiztosítás és mire nyújt védelmet?"
+- "Mennyi életbiztosítást érdemes kötni?"
+- "Milyen adókedvezmény jár nyugdíjbiztosítás után?"
+- "Miben különbözik a kockázati és a megtakarításos életbiztosítás?"
 
-- Q&A product pages;
+Mockup signal:
+
+- product Q&A pages;
 - extractable answer blocks;
-- higher product specificity;
-- clearer cited answer blocks.
+- stronger product specificity;
+- more direct NN product links.
 
 ### R2 — Strengthen NN's machine-readable identity
 
-Horizon: 0-3 months  
-Pillar: Discoverability + Credibility  
-Priority: High
+**Horizon:** 0-3 months  
+**Pillar:** Discoverability + Credibility  
+**Priority:** High
 
-Objective:
+Build a clearer entity chain:
 
-Make it easier for AI systems to understand which entity "NN Biztosító" refers to and how it connects to trusted sources.
+```text
+nn.hu → sameAs links → Wikidata → third-party proof
+```
 
-Mockup validation signal:
+Mockup signal:
 
-- entity profile;
-- sameAs / Wikidata-style proof;
-- higher credibility score;
-- entity-source evidence.
+- entity/schema mock;
+- sameAs / Wikidata-style identity evidence;
+- stronger credibility score.
 
 ### R3 — Fix technical discoverability hygiene
 
-Horizon: 0-6 months  
-Pillar: Discoverability  
-Priority: Medium-high
+**Horizon:** 0-6 months  
+**Pillar:** Discoverability  
+**Priority:** Medium-high
 
-Objective:
+Actions:
 
-Improve technical readiness so AI systems and search crawlers can discover fresh, structured NN content more reliably.
+- sitemap freshness audit;
+- IndexNow implementation;
+- crawler access policy review;
+- structured-data validation;
+- meta description cleanup;
+- optional llms.txt pilot.
 
-Mockup validation signal:
+Caveat:
 
-- sitemap hygiene;
-- IndexNow readiness;
-- structured-data pilot;
-- llms.txt pilot.
+> llms.txt should be treated as a low-priority pilot, not a core dependency.
 
 ### R4 — Build an AI visibility dashboard
 
-Horizon: 0-3 months  
-Pillar: Measurement  
-Priority: Medium
-
-Objective:
-
-Make prompt-level visibility, model differences and recommendation impact measurable instead of anecdotal.
+**Horizon:** 0-3 months  
+**Pillar:** Measurement / governance  
+**Priority:** Medium
 
 The current repository itself acts as the POC for this recommendation.
 
+Track:
+
+- prompt coverage;
+- model differences;
+- product-specific mentions;
+- citation/link references;
+- competitor visibility;
+- recommendation impact over time.
+
 ### R5 — Build a third-party credibility ecosystem
 
-Horizon: 3-12 months  
-Pillar: Credibility  
-Priority: High
+**Horizon:** 3-12 months  
+**Pillar:** Credibility  
+**Priority:** High
 
-Objective:
-
-Make NN citable through sources AI systems already trust in Hungarian insurance research.
-
-Examples:
+Priority sources:
 
 - Google Business Profile;
-- comparison platforms;
-- financial media;
 - review platforms;
-- regulatory / industry references.
+- Netrisk.hu;
+- Biztositas.hu;
+- independent financial media;
+- industry / MNB references.
+
+Mockup signal:
+
+- external proof assets;
+- stronger credibility score;
+- stronger comparison-answer support.
 
 ### R6 — Publish original Hungarian AI-finance research
 
-Horizon: 3-12 months  
-Pillar: Credibility + Authority  
-Priority: High
+**Horizon:** 3-12 months  
+**Pillar:** Credibility + Authority  
+**Priority:** High
 
-Objective:
+Possible title:
 
-Create a recurring, citable Hungarian insight asset about how consumers use and trust AI in financial and insurance decisions.
+```text
+Magyarok és az AI: pénzügyi döntéshozatal a mesterséges intelligencia korában
+```
 
-Expected impact:
+Purpose:
 
-- citable authority asset;
-- independent media citation potential;
-- recurring source for AI answers about Hungarian consumer behaviour.
+- create a unique, citable Hungarian authority asset;
+- position NN as a thought leader in AI + financial decision-making;
+- support media and AI citation potential.
 
 ### R7 — Build decision-guide pages
 
-Horizon: 3-12 months  
-Pillar: Clarity + Actionability  
-Priority: Medium
+**Horizon:** 3-12 months  
+**Pillar:** Clarity + Actionability  
+**Priority:** Medium
 
-Objective:
+Example pages:
 
-Help models answer decision-oriented user questions more concretely.
+- "Mikor érdemes életbiztosítást kötni?"
+- "Nyugdíjbiztosítás vagy önkéntes nyugdíjpénztár?"
+- "Mekkora életbiztosítási fedezet kell egy családnak?"
+- "Hogyan gondolkodjak biztosításról 30/40/50 évesen?"
 
-Examples:
+Mockup signal:
 
-- life-stage guides;
-- comparison guides;
-- "which insurance is right for me" pages;
-- product-selection support.
+- clearer decision support;
+- guide links;
+- stronger actionability.
 
 ### R8 — Build toward Wikipedia authority path
 
-Horizon: 12-36 months  
-Pillar: Authority  
-Priority: Medium
-
-Objective:
-
-Support long-term entity credibility if enough independent sources exist.
+**Horizon:** 12-36 months  
+**Pillar:** Authority  
+**Priority:** Medium
 
 Important caveat:
 
-This should not be framed as a quick marketing action. It requires neutral notability and independent sources.
+> Wikipedia should not be framed as a quick marketing action. It requires neutral notability and independent sources.
+
+Goal:
+
+- build independent coverage;
+- collect notability evidence;
+- later consider a neutral Wikipedia path if conditions are met.
 
 ### R9 — Launch public financial calculators
 
-Horizon: 12-36 months  
-Pillar: Actionability  
-Priority: High
+**Horizon:** 12-36 months  
+**Pillar:** Actionability  
+**Priority:** High
 
-Objective:
-
-Turn AI visibility into concrete next-step recommendations on `nn.hu`.
-
-Examples:
+Recommended tools:
 
 - pension gap calculator;
 - SZJA tax benefit calculator;
-- life insurance cover estimator;
+- life insurance need estimator;
 - health insurance decision-support calculator.
 
 Expected impact:
 
 - more explicit NN links;
 - stronger actionability;
-- more measurable AI-assisted demand.
+- clearer bridge from AI answers to lead potential.
 
 ### R10 — Advanced personalization
 
-Horizon: 12-36 months  
-Pillar: Actionability / conversion  
-Priority: Lower-medium
+**Horizon:** 12-36 months  
+**Pillar:** Actionability / conversion  
+**Priority:** Lower-medium initially, higher later
+
+Examples:
+
+- personalized guides by age group;
+- calculator output with next best action;
+- life-stage-based recommendations;
+- advisor handoff;
+- CRM / lead scoring integration.
+
+---
+
+## 11. Impact × time prioritization
+
+### 0-3 months
+
+High priority:
+
+- conversational product pages + Q&A;
+- entity schema + sameAs + Wikidata path;
+- AI visibility dashboard.
+
+Support / hygiene:
+
+- robots;
+- sitemap;
+- IndexNow;
+- optional llms.txt.
 
 Objective:
 
-After the foundation is built, use personalization and advisor handoff to increase conversion relevance.
+```text
+Make NN easier to find, understand and measure.
+```
 
-Expected impact:
+### 3-12 months
 
-- higher actionability;
-- stronger next-best-action logic;
-- better lead conversion narrative.
+High priority:
+
+- third-party credibility ecosystem;
+- original Hungarian AI-finance research.
+
+Medium priority:
+
+- decision-guide pages.
+
+Objective:
+
+```text
+Build credibility and create citable external proof.
+```
+
+### 12-36 months
+
+High priority:
+
+- public calculators.
+
+Medium priority:
+
+- Wikipedia authority path;
+- advanced personalization.
+
+Objective:
+
+```text
+Turn AI visibility into action, lead generation and long-term authority.
+```
 
 ---
 
-## 11. Dashboard KPIs
-
-The dashboard separates answer quality from actual explicit link/citation behaviour.
-
-### Answer quality / recommendation impact score
-
-Composite heuristic score based on:
-
-- mention quality;
-- product specificity;
-- credibility;
-- actionability.
-
-### Prompt-level NN presence
-
-How many model-prompt outputs mention NN.
-
-Baseline:
-
-```text
-64 / 144 outputs
-```
-
-### Unique prompt coverage
-
-How many of the 48 prompts included at least one NN presence.
-
-Baseline:
-
-```text
-32 / 48 prompts
-```
-
-### Explicit NN citation / link references
-
-How many model-prompt outputs include an explicit `nn.hu` citation/link.
-
-Baseline:
-
-```text
-5 / 144 outputs
-```
-
-This is the key gap. NN is already mentioned, but explicit links/citations are rare.
-
-### NN next-step recommendations
-
-The number of explicit `nn.hu` links to:
-
-- product pages;
-- calculators;
-- decision guides;
-- research pages;
-- quote paths;
-- advisor handoff pages.
-
-### Source/domain mix
-
-Shows where retrieved evidence comes from:
-
-- current-like NN sources;
-- mocked future assets;
-- third-party examples;
-- technical audit signals;
-- local demo sources.
-
-### Competitor mention check
-
-Tracks competitor mentions in controlled answers for:
-
-- UNIQA;
-- Generali;
-- Allianz;
-- Groupama.
-
----
-
-## 12. Dashboard UX / slide logic
-
-The impact slide and dashboard messaging are aligned around the funnel:
-
-```text
-Be present
-→ Be cited
-→ Be chosen
-```
-
-### Be present
-
-Goal:
-
-Increase prompt-level AI presence.
-
-KPI:
-
-```text
-AI answers mentioning NN / total model-prompt outputs
-```
-
-Baseline:
-
-```text
-64 / 144 model-prompt outputs
-```
-
-### Be cited
-
-Goal:
-
-Turn mentions into citations and links.
-
-KPI:
-
-```text
-AI answers with explicit nn.hu links / total model-prompt outputs
-```
-
-Baseline:
-
-```text
-5 / 144 outputs
-```
-
-### Be chosen
-
-Goal:
-
-Convert AI visibility into lead potential.
-
-KPI:
-
-```text
-AI-assisted leads = AI-referred visits × quote / calculator conversion rate
-```
-
-Track:
-
-- AI referrals;
-- calculator starts;
-- quote clicks;
-- advisor handoffs;
-- qualified leads.
-
----
-
-## 13. Repository structure
+## 12. Repository structure
 
 Important files and folders:
 
 ```text
 README.md
 PROJECT_CONTEXT.md
-PROJECT_FEEDBACK.md
+FIRST_API_RUN.md
+RECOMMENDATION_IMPLEMENTATION_MAP.md
 .env.example
 app.py
 dashboard.py
 generate_responses.py
+import_prompts_from_excel.py
 
 geo_demo/
   data.py
@@ -654,187 +554,151 @@ geo_demo/
 
 data/
   prompts.json
+  original_analysis_summary.json
+  baseline_visibility.json
   corpus_current.json
   corpus_improved.json
   recommendations.json
-  baseline_visibility.json
 
 static/
   index.html
   app.js
+  mockup_only.js
   styles.css
   baseline.css
 
 results/
-  latest_results.json      # generated, ignored by git
-  latest_results.csv       # generated, ignored by git
+  latest_results.json      # generated locally, ignored by git
+  latest_results.csv       # generated locally, ignored by git
 
 tests/
 ```
 
-### `README.md`
+`PROJECT_CONTEXT.md` is now the single source of truth for project context.
 
-Main user-facing project documentation. Explains purpose, methodology, baseline, API usage and run commands.
-
-### `PROJECT_CONTEXT.md`
-
-This file. Full project context for developers, reviewers and future AI assistants.
-
-### `PROJECT_FEEDBACK.md`
-
-Feedback and improvement roadmap created during project refinement.
-
-### `data/prompts.json`
-
-The prompt set used for testing Hungarian insurance-related user questions.
-
-### `data/baseline_visibility.json`
-
-The observed pre-mockup baseline metrics from the manual benchmark.
-
-### `data/corpus_current.json`
-
-Current-like NN/public source environment.
-
-### `data/corpus_improved.json`
-
-Mocked future GEO asset environment based on the recommendations.
-
-### `data/recommendations.json`
-
-The actionable recommendation set with:
-
-- id;
-- title;
-- horizon;
-- pillar;
-- priority;
-- demo signal;
-- validation hypothesis;
-- expected signal;
-- asset types.
-
-### `geo_demo/providers.py`
-
-Defines provider integrations and mock fallback logic for:
-
-- OpenAI;
-- Gemini;
-- Claude.
-
-Also builds the grounded prompt that sends controlled source context to the model.
-
-### `geo_demo/retrieval.py`
-
-Simple local retrieval over the controlled corpus.
-
-### `geo_demo/scoring.py`
-
-Heuristic scoring logic for answer quality.
-
-### `geo_demo/linking.py`
-
-Counts NN mentions and extracts explicit `nn.hu` link recommendations.
-
-### `geo_demo/server.py`
-
-HTTP server and API layer for the dashboard.
-
-### `static/index.html`, `static/app.js`, `static/styles.css`, `static/baseline.css`
-
-Frontend dashboard implementation.
-
----
-
-## 14. API endpoints
-
-The dashboard server exposes:
+Removed / deprecated files:
 
 ```text
-GET  /api/config
-GET  /api/cached
-GET  /api/sources?mode=current
-GET  /api/sources?mode=improved
-GET  /api/export.csv
-POST /api/run
+NN_GenAI_DCC_AI_context.md
+PROJECT_FEEDBACK.md
 ```
-
-### `GET /api/config`
-
-Returns:
-
-- prompts;
-- recommendations;
-- baseline visibility data;
-- provider status;
-- corpus modes.
-
-### `GET /api/cached`
-
-Loads generated results from `results/latest_results.json`, or generates fallback mock results if no latest file exists.
-
-### `POST /api/run`
-
-Runs the benchmark for selected prompts/models.
-
-Example:
-
-```json
-{
-  "prompt_id": "p01",
-  "corpus_mode": "both",
-  "models": ["openai", "gemini", "claude"],
-  "use_live": false
-}
-```
-
-### `GET /api/export.csv`
-
-Exports benchmark results in CSV format.
 
 ---
 
-## 15. How to run the project
+## 13. Prompt source
 
-### Mock/local mode
+The prompt set is stored in:
 
-Useful for UI testing and fallback demo.
+```text
+data/prompts.json
+```
+
+It was generated from the uploaded Excel benchmark:
+
+```text
+n8n_DCC.xlsx
+```
+
+Source:
+
+```text
+Sheet: PROMPTS
+Prompt column: A
+Header row: row 1
+Prompt rows: row 2 onward
+Category / segment column: B
+```
+
+Regenerate prompts locally with:
 
 ```powershell
-uv run python generate_responses.py
-uv run python dashboard.py --host 127.0.0.1 --port 8765
+uv run python import_prompts_from_excel.py path\to\n8n_DCC.xlsx --sheet PROMPTS --prompt-col A --category-col B --output data/prompts.json
 ```
 
-Open:
+Expected count:
 
 ```text
-http://127.0.0.1:8765
+48 prompts
 ```
 
-### Recommended live validation mode
+---
 
-Use at least one real LLM provider. Gemini is recommended for a low-cost POC.
+## 14. Providers and API usage
 
-Create `.env`:
+Supported providers:
+
+```text
+openai
+gemini
+claude
+openrouter
+```
+
+Environment variables:
+
+```text
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4.1-mini
+
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-2.5-flash-lite
+
+ANTHROPIC_API_KEY=
+ANTHROPIC_MODEL=claude-3-5-haiku-latest
+
+OPENROUTER_API_KEY=
+OPENROUTER_MODEL=google/gemma-4-31b-it:free
+```
+
+OpenRouter is useful as a temporary free-model route when Gemini quota is exhausted. It uses an OpenAI-compatible chat completions endpoint.
+
+Recommended OpenRouter smoke test:
+
+```powershell
+uv run python generate_responses.py --live --models openrouter --delay-seconds 4
+```
+
+Caution:
+
+```text
+48 requests is very close to a 50/day free OpenRouter limit.
+```
+
+Do a one-prompt UI test before running the full 48-prompt benchmark.
+
+---
+
+## 15. How to run
+
+### Create `.env`
 
 ```powershell
 Copy-Item .env.example .env
 notepad .env
 ```
 
-Set:
-
-```text
-GEMINI_API_KEY=...
-GEMINI_MODEL=gemini-2.5-flash
-```
-
-Run:
+### Gemini live run
 
 ```powershell
-uv run python generate_responses.py --live --models gemini
+uv run python generate_responses.py --live --models gemini --delay-seconds 7
 uv run python dashboard.py --host 127.0.0.1 --port 8765
 ```
+
+### OpenRouter live run
+
+```powershell
+uv run python generate_responses.py --live --models openrouter --delay-seconds 4
+uv run python dashboard.py --host 127.0.0.1 --port 8765
+```
+
+### Local mock run for UI testing only
+
+```powershell
+uv run python generate_responses.py
+uv run python dashboard.py --host 127.0.0.1 --port 8765
+```
+
+Local mock mode is useful for UI testing, but not for final validation evidence.
 
 ### Tests
 
@@ -845,29 +709,68 @@ uv run python -m unittest discover -s tests
 
 ---
 
-## 16. Important interpretation rules
+## 16. Dashboard / API endpoints
+
+The dashboard server exposes:
+
+```text
+GET  /api/config
+GET  /api/cached
+GET  /api/sources?mode=improved
+GET  /api/sources?mode=current
+GET  /api/export.csv
+POST /api/run
+```
+
+`/api/config` returns:
+
+- prompts;
+- recommendations;
+- baseline visibility data;
+- original analysis summary;
+- provider status;
+- corpus modes.
+
+`/api/cached` loads:
+
+```text
+results/latest_results.json
+```
+
+if available.
+
+`/api/run` can run selected prompt/model combinations from the dashboard.
+
+---
+
+## 17. Interpretation rules
 
 ### Do not overclaim
 
-Do not say:
+Do not claim:
 
-```text
-This proves NN will rank higher in public ChatGPT/Gemini/Claude.
-```
+- FAQ schema guarantees AI citation.
+- llms.txt is required for AI visibility.
+- Wikipedia can be created quickly as a marketing action.
+- Robots.txt changes alone will create visibility.
+- AI mentions directly equal customer conversion.
+- The POC proves live public AI ranking improvement.
 
-Say:
+Use safer phrases:
 
-```text
-This validates under controlled conditions that the recommended NN assets can improve GenAI-style answer quality, citations and actionability.
-```
+- indicates;
+- suggests;
+- demonstrates under controlled conditions;
+- validates the direction of the recommendation;
+- supports the business case.
 
-### Distinguish mentions from links
+### Distinguish mentions from citations / links
 
 An NN mention is awareness.
 
-An explicit NN link/citation is stronger because it directs the user toward an NN-owned source or action.
+An explicit NN link or citation is stronger because it directs the user toward an NN-owned source or action.
 
-The key business gap is:
+Key gap:
 
 ```text
 NN has strong mention baseline but weak explicit link/citation baseline.
@@ -875,84 +778,40 @@ NN has strong mention baseline but weak explicit link/citation baseline.
 
 ### Treat mock results carefully
 
-Mock results are for demo stability, not strong evidence.
+Local mock results are for UI stability and demo backup.
 
-Live API controlled-source results are stronger evidence because a real model generates the answer.
+Live API controlled-source results are stronger evidence because a real model generated the answer.
 
-### Websearch is future, not core
+### Keep the story simple
 
-The core POC does not need websearch. Future versions may add:
+The final storyline should be:
 
-- live web visibility monitoring;
-- search-grounded provider calls;
-- public citation tracking;
-- time-series prompt monitoring;
-- real AI referral attribution.
+```text
+NN is already visible.
+But visibility is not yet actionable enough.
+The recommended GEO assets aim to make NN easier to cite, link and choose.
+The POC validates this direction under controlled conditions.
+```
 
 ---
 
-## 17. Suggested presentation narrative
+## 18. Recommended presentation narrative
 
-### Full version
+### English version
 
-This POC starts from an observed 48-prompt GenAI visibility baseline. NN is already present in 64 out of 144 model-prompt outputs, but explicit NN links and citations are rare. The controlled mockup run validates whether the recommended GEO assets can turn NN from a mentioned brand into a cited, linked and actionable next step.
-
-### Short version
-
-NN is already visible, but not actionable enough. The POC tests whether the recommended GEO assets can increase citations, links and AI-assisted lead potential.
+> NN already appears frequently in GenAI answers. The opportunity is not simply to increase mentions, but to improve the quality of those mentions. The goal is to make NN more product-specific, more credible, more citable and more actionable. This POC uses the original 48-prompt benchmark as the observed baseline, then tests whether recommended mockup assets can improve AI-style answers under controlled conditions.
 
 ### Hungarian version
 
-A kiinduló 48 promptos baseline alapján NN már erősen jelen van a GenAI válaszokban, de kevés az explicit NN link/cite. A POC azt validálja, hogy az ajánlott GEO mockup assetek képesek-e az NN jelenlétet konkrétabb, hivatkozhatóbb és actionable irányba vinni.
+> NN már most is látható a generatív AI válaszokban, tehát nem nulláról kell építkeznie. A probléma inkább az, hogy ez a visibility még nem mindig elég konkrét, nem mindig elég hitelesen alátámasztott, és nem mindig vezet világos következő lépéshez. A POC ezért azt validálja, hogy az ajánlott GEO assetek kontrollált környezetben konkrétabbá, hivatkozhatóbbá és actionable-bbé teszik-e a válaszokat.
+
+Short version:
+
+> We are not trying to recreate the whole public web. We are validating whether the recommended NN assets would make GenAI answers better under controlled conditions.
 
 ---
 
-## 18. Current best framing
-
-Best project title:
-
-```text
-NN GEO Recommendation Impact Simulator
-```
-
-Best core claim:
-
-```text
-The roadmap should not only increase AI mentions — it should make NN cited, linked and chosen as the next step.
-```
-
-Best impact logic:
-
-```text
-From "NN is mentioned" to "NN is cited, linked and chosen."
-```
-
-Best KPI funnel:
-
-```text
-Be present → Be cited → Be chosen
-```
-
----
-
-## 19. Future improvement ideas
-
-Possible next steps after the current POC:
-
-1. Add real web visibility monitoring as a separate mode.
-2. Add search-grounded Gemini or OpenAI web search integration.
-3. Add manual import of real AI outputs from Excel/CSV.
-4. Add longitudinal prompt tracking over time.
-5. Add source-level citation tracking.
-6. Add competitor dashboards for UNIQA, Generali, Allianz and Groupama.
-7. Add AI referral analytics if NN can tag sessions from AI platforms.
-8. Add conversion attribution from calculator starts, quote clicks and advisor handoff.
-9. Add slide/PPT export for executive reporting.
-10. Add a more robust human review workflow for prompt outputs.
-
----
-
-## 20. Final project interpretation
+## 19. Final project interpretation
 
 This is a strategic and technical POC that supports the NN GEO roadmap.
 
