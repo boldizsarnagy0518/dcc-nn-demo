@@ -2,6 +2,10 @@ function observedBaseline() {
   return state.config?.baseline_visibility || {};
 }
 
+function apiOnlyResults(results) {
+  return (results || []).filter((item) => item.provider_mode === "api" && !item.error);
+}
+
 function applyMockupOnlyLabels() {
   const baseline = observedBaseline();
   const currentAvg = byId("currentAvg");
@@ -46,39 +50,74 @@ function applyMockupOnlyLabels() {
   if (currentLinks) currentLinks.textContent = baseline.baseline_explicit_nn_link_references ?? 0;
 }
 
+renderProviderStatus = function patchedRenderProviderStatus() {
+  const items = Object.entries(state.config.providers).map(([id, provider]) => {
+    const cls = provider.configured ? "dot on" : "dot";
+    const label = `${provider.label}: ${provider.configured ? provider.model : "not configured"}`;
+    return `<span class="pill"><span class="${cls}"></span>${escapeHtml(label)}</span>`;
+  });
+  byId("providerStatus").innerHTML = items.join("");
+};
+
 const originalRenderSummary = renderSummary;
 renderSummary = function patchedRenderSummary() {
+  state.results = apiOnlyResults(state.results);
   originalRenderSummary();
   applyMockupOnlyLabels();
 };
 
-const originalRunBenchmark = runBenchmark;
+loadCached = async function patchedLoadCached() {
+  setStatus("Loading API-generated validation results...");
+  const payload = await fetchJson("/api/cached");
+  const rawResults = payload.results || [];
+  state.results = apiOnlyResults(rawResults);
+  state.summary = payload.summary;
+  renderSummary();
+  renderResults();
+  const ignored = rawResults.length - state.results.length;
+  const source = payload.source === "results/latest_results.json" ? "generated API result file" : "no generated API result file";
+  byId("runMeta").textContent = payload.generated_at
+    ? `Loaded ${source}, generated at ${payload.generated_at}.${ignored ? ` Hidden ${ignored} non-API / fallback row(s).` : ""}`
+    : `No API results loaded yet. Run a live provider validation first.`;
+  setStatus(
+    state.results.length
+      ? "API validation results loaded."
+      : "No valid API results loaded. Fallback/mock rows are hidden.",
+    !state.results.length,
+  );
+};
+
 runBenchmark = async function patchedRunBenchmark(full = false) {
   const useLive = byId("liveToggle").checked;
+  if (!useLive) {
+    setStatus("Local mock generation is disabled for dashboard validation. Turn on provider API mode.", true);
+    return;
+  }
   const body = {
     corpus_mode: "improved",
     models: selectedModels(),
-    use_live: useLive,
+    use_live: true,
   };
   if (!full) {
     body.prompt_id = state.selectedPromptId;
   }
 
-  setStatus(useLive ? "Running mockup-only provider validation..." : "Running mockup-only local benchmark...");
+  setStatus("Running mockup-only provider validation...");
   const payload = await fetchJson("/api/run", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(body),
   });
 
+  const apiResults = apiOnlyResults(payload.results || []);
   if (full) {
-    state.results = payload.results;
+    state.results = apiResults;
   } else {
-    const replacementKeys = new Set(payload.results.map((item) => `${item.prompt_id}:${item.model}:${item.corpus_mode}`));
-    state.results = state.results.filter(
+    const replacementKeys = new Set(apiResults.map((item) => `${item.prompt_id}:${item.model}:${item.corpus_mode}`));
+    state.results = apiOnlyResults(state.results).filter(
       (item) => !replacementKeys.has(`${item.prompt_id}:${item.model}:${item.corpus_mode}`),
     );
-    state.results.push(...payload.results);
+    state.results.push(...apiResults);
   }
   state.summary = payload.summary;
   if (payload.provider_status) {
@@ -87,9 +126,5 @@ runBenchmark = async function patchedRunBenchmark(full = false) {
   }
   renderSummary();
   renderResults();
-  setStatus(
-    payload.cached
-      ? "Mockup-only local benchmark completed."
-      : "Mockup-only provider validation completed. Check answer badges for API vs mock fallback."
-  );
+  setStatus("Mockup-only API validation completed. Non-API rows are hidden.");
 };
