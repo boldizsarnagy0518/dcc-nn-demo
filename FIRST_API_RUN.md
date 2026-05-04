@@ -11,6 +11,45 @@ Reason:
 - The project now runs mockup-only validation by default, so a full Gemini-only run is only 48 requests.
 - Gemini 2.5 Flash / Flash-Lite are suitable for low-cost POC validation.
 
+## Prompt source
+
+The prompt set is stored in:
+
+```text
+data/prompts.json
+```
+
+It has now been updated from the uploaded Excel benchmark file:
+
+```text
+n8n_DCC.xlsx
+```
+
+Source sheet and column:
+
+```text
+Sheet: PROMPTS
+Prompt column: A
+Header row: row 1
+Prompt rows: row 2 onward
+```
+
+Column B is imported as the prompt category / segment. In the uploaded Excel this is mainly the age group, for example `18–24`, `25–34`, `35–44`, etc.
+
+The current `data/prompts.json` contains 48 prompts.
+
+To regenerate `data/prompts.json` from an Excel file later, place the Excel file locally and run:
+
+```powershell
+uv run python import_prompts_from_excel.py path\to\n8n_DCC.xlsx
+```
+
+Optional explicit version:
+
+```powershell
+uv run python import_prompts_from_excel.py path\to\n8n_DCC.xlsx --sheet PROMPTS --prompt-col A --category-col B --output data/prompts.json
+```
+
 ## Why not OpenRouter first?
 
 OpenRouter can be useful later, but it is not the best first-run option in the current codebase.
@@ -76,10 +115,16 @@ If you want the cheapest / fastest variant and quality is acceptable, you can tr
 GEMINI_MODEL=gemini-2.5-flash-lite
 ```
 
+If you use a model with strict per-minute limits, run with a delay. For example:
+
+```powershell
+uv run python generate_responses.py --live --models gemini --delay-seconds 7
+```
+
 ### 3. Run the live validation
 
 ```powershell
-uv run python generate_responses.py --live --models gemini
+uv run python generate_responses.py --live --models gemini --delay-seconds 7
 ```
 
 This writes:
