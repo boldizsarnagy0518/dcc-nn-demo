@@ -1,7 +1,7 @@
 [project]
 name = "nn-geo-demo"
 version = "0.1.0"
-description = "Controlled RAG dashboard for the NN GenAI visibility / GEO demo."
+description = "Controlled A/B evidence pipeline for the NN GenAI visibility / GEO demo."
 requires-python = ">=3.12"
 dependencies = []
 

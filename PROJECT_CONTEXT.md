@@ -2,7 +2,7 @@
 
 ## 1. One-sentence summary
 
-This repository contains a proof-of-concept dashboard for the NN Hungary GenAI visibility / GEO case. It combines an observed baseline analysis from the original 48-prompt benchmark with a post-mockup validation run that tests whether NN's actionable GEO recommendations can make AI-style answers more specific, credible, citable and actionable.
+This repository contains a controlled A/B evidence pipeline and clickable NN mockup site for the NN Hungary GenAI visibility / GEO case. It uses the original 48-prompt benchmark as diagnosis, then tests whether NN's actionable GEO recommendations improve AI-style answer quality, citations and next-step actionability under controlled conditions.
 
 ---
 
@@ -83,9 +83,9 @@ This proves NN will rank higher in public ChatGPT/Gemini/Claude.
 
 The project now uses a two-part methodology.
 
-### 1. Original baseline analysis
+### 1. Original live-web benchmark as diagnosis
 
-The original baseline is not generated again by the API. It comes from the manually collected benchmark and the uploaded statistical analysis.
+The original baseline is not regenerated as the main proof. It comes from the manually collected benchmark and uploaded analysis.
 
 Source files / data:
 
@@ -100,7 +100,8 @@ Benchmark setup:
 
 - 48 Hungarian life-insurance-related prompts;
 - 3 model families;
-- 144 total model-prompt outputs.
+- 144 total model-prompt outputs;
+- agents had internet access in the original n8n run.
 
 Main baseline metrics:
 
@@ -112,7 +113,7 @@ Main baseline metrics:
 | Total NN mentions | 223 |
 | NN prompt-level presence | 64 / 144 |
 | NN unique prompt coverage | 32 / 48 |
-| NN vs competitor average | 2.0× |
+| NN vs competitor average | 2.0x |
 | Explicit NN cite/link references | 5 / 144 |
 | Positive / negative keyword context | 210 / 6 |
 | Approx. share of voice | ~13% |
@@ -121,32 +122,47 @@ Strategic interpretation:
 
 > NN is already visible in GenAI answers, but the next opportunity is to make this visibility more product-specific, more credible, more citable and more actionable.
 
-### 2. Post-mockup validation run
+### 2. Controlled A/B validation as intervention proof
 
-The API run only tests the **improved / mockup corpus**.
+The current evidence run is a controlled A/B test. It does not browse the public web. It isolates the effect of the recommended NN assets by changing only the controlled source environment.
 
-Current default logic:
-
-```text
-Observed baseline = manual benchmark / Excel / HTML analysis
-API validation = mockup-only improved corpus
-```
-
-Therefore the default full run is:
+Current default evidence workflow:
 
 ```text
-48 prompts × 1 corpus mode × 1 model = 48 provider calls
+A = current NN/current-like corpus
+B = current corpus + actionable recommendation/mockup corpus + parsed mockup HTML signals
 ```
 
-Not:
+Full evidence run:
 
 ```text
-48 prompts × 2 corpus modes × 1 model = 96 provider calls
+48 prompts x 2 corpus modes x 3 OpenRouter model-family routes = 288 provider calls
 ```
 
-This keeps the run cheaper and fits the actual case story better, because the pre-mockup baseline already exists.
+The primary runner is:
 
----
+```powershell
+python run_controlled_ab.py path\to\n8n_DCC.xlsx
+```
+
+The runner writes:
+
+```text
+results/controlled_ab_<timestamp>/
+  checkpoint.jsonl
+  all_results.json
+  all_results.csv
+  A_current_outputs.xlsx
+  B_improved_outputs.xlsx
+  AB_summary.xlsx
+```
+
+Evidence-mode requirements:
+
+- provider_mode must equal api;
+- no mock fallback rows are accepted;
+- checkpointing allows a failed run to resume;
+- Excel outputs are the primary client-facing evidence artifact.
 
 ## 6. Why websearch is intentionally not required
 
@@ -179,56 +195,38 @@ Future versions can add search-grounded APIs and live monitoring, but those are 
 
 ---
 
-## 7. What the dashboard should show
+## 7. What the evidence outputs should show
 
-The intended dashboard structure is now two main blocks:
+The primary output is now Excel evidence, not a dashboard-first workflow. The optional dashboard can still be used for exploration, but the final proof should rely on the controlled A/B workbook outputs.
 
-### Block 1 — Original baseline analysis
+### A_current_outputs.xlsx
 
-Based on `n8n_DCC.xlsx`, `NN_Analysis.html`, `data/baseline_visibility.json` and `data/original_analysis_summary.json`.
+Should contain every current-corpus model answer with:
 
-It should show:
+- prompt id, category and prompt text;
+- provider and exact model id;
+- retrieved current source IDs and URLs;
+- NN mentions, explicit NN links and competitor mentions;
+- score breakdown: mention quality, product specificity, credibility and actionability.
 
-- 48 prompts;
-- 3 models;
-- 144 outputs;
-- NN as the most frequently mentioned insurer;
-- 223 NN mentions;
-- ~13% share of voice;
-- 64 / 144 NN prompt-level presences;
-- 32 / 48 prompt coverage;
-- 5 / 144 explicit NN cite/link references;
-- model-level readout:
-  - OpenAI / ChatGPT: more generic, list-based NN mentions;
-  - Gemini: richest NN context in the original benchmark;
-  - Claude: frequent but often more neutral/table-like mentions.
+### B_improved_outputs.xlsx
 
-Baseline message:
+Should contain every improved-corpus model answer with the same columns, plus recommendation IDs represented in retrieved evidence. B uses current content plus all actionable recommendation assets and parsed mockup HTML signals.
 
-> NN starts from a strong visibility position, but visibility alone is not enough.
+### AB_summary.xlsx
 
-### Block 2 — Post-mockup validation analysis
+Should show:
 
-Based on live provider outputs generated from `data/corpus_improved.json`.
+- overall current vs improved score delta;
+- model-level current vs improved scores;
+- prompt-level uplift;
+- explicit NN link uplift;
+- recommendation-level coverage for R1-R10;
+- run metadata and methodology wording.
 
-It should show:
+Main evidence message:
 
-- mockup answer quality score;
-- NN mentions in the post-mockup run;
-- explicit NN links/citations;
-- link/cite uplift versus the observed baseline of 5 explicit NN cite/link references;
-- next-step destination mix;
-- prompt-level mockup coverage;
-- recommendation coverage;
-- retrieved mockup source evidence;
-- provider mode.
-
-Post-mockup message:
-
-> The mockup run tests whether the recommended NN assets can turn AI visibility into cited, linked and actionable next steps.
-
----
-
+> The controlled A/B validation isolates whether the recommended NN assets can make AI-style answers more specific, credible, citable and actionable.
 ## 8. Important implementation decision: no live API fallback
 
 Live API mode should not silently fallback to mock answers.
@@ -537,14 +535,18 @@ PROJECT_CONTEXT.md
 FIRST_API_RUN.md
 RECOMMENDATION_IMPLEMENTATION_MAP.md
 .env.example
-app.py
-dashboard.py
+run_controlled_ab.py
 generate_responses.py
 import_prompts_from_excel.py
+dashboard.py
 
 geo_demo/
+  benchmark.py
   data.py
   env.py
+  evidence_export.py
+  excel_export.py
+  mockup_site.py
   providers.py
   retrieval.py
   scoring.py
@@ -560,21 +562,21 @@ data/
   corpus_improved.json
   recommendations.json
 
-static/
+nn_actionable_site/
   index.html
-  app.js
-  mockup_only.js
   styles.css
-  baseline.css
+  app.js
+  NN-logo.png
 
 results/
-  latest_results.json      # generated locally, ignored by git
-  latest_results.csv       # generated locally, ignored by git
+  controlled_ab_<timestamp>/
+    checkpoint.jsonl
+    A_current_outputs.xlsx
+    B_improved_outputs.xlsx
+    AB_summary.xlsx
 
 tests/
 ```
-
-`PROJECT_CONTEXT.md` is now the single source of truth for project context.
 
 Removed / deprecated files:
 
@@ -584,7 +586,6 @@ PROJECT_FEEDBACK.md
 ```
 
 ---
-
 ## 13. Prompt source
 
 The prompt set is stored in:
@@ -628,26 +629,30 @@ Expected count:
 Supported providers:
 
 ```text
+openrouter_openai
+openrouter_gemini
+openrouter_claude
+openrouter
 openai
 gemini
 claude
-openrouter
 ```
 
 Environment variables:
 
 ```text
-OPENAI_API_KEY=
-OPENAI_MODEL=gpt-4.1-mini
-
-GEMINI_API_KEY=
-GEMINI_MODEL=gemini-2.5-flash-lite
-
-ANTHROPIC_API_KEY=
-ANTHROPIC_MODEL=claude-3-5-haiku-latest
-
 OPENROUTER_API_KEY=
-OPENROUTER_MODEL=google/gemma-4-31b-it:free
+OPENROUTER_OPENAI_MODEL=openai/gpt-5.2
+OPENROUTER_GEMINI_MODEL=google/gemini-3-pro-preview
+OPENROUTER_CLAUDE_MODEL=anthropic/claude-sonnet-4.6
+
+# Optional direct-provider routes
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-5.2
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-3-pro-preview
+ANTHROPIC_API_KEY=
+ANTHROPIC_MODEL=claude-sonnet-4-20250514
 ```
 
 OpenRouter is useful as a temporary free-model route when Gemini quota is exhausted. It uses an OpenAI-compatible chat completions endpoint.
@@ -670,44 +675,39 @@ Do a one-prompt UI test before running the full 48-prompt benchmark.
 
 ## 15. How to run
 
-### Create `.env`
+### Create env file
 
 ```powershell
 Copy-Item .env.example .env
 notepad .env
 ```
 
-### Gemini live run
+### Controlled A/B evidence run
 
 ```powershell
-uv run python generate_responses.py --live --models gemini --delay-seconds 7
-uv run python dashboard.py --host 127.0.0.1 --port 8765
+python run_controlled_ab.py path/to/n8n_DCC.xlsx --delay-seconds 2
 ```
 
-### OpenRouter live run
+Optional smoke test:
 
 ```powershell
-uv run python generate_responses.py --live --models openrouter --delay-seconds 4
-uv run python dashboard.py --host 127.0.0.1 --port 8765
+python run_controlled_ab.py path/to/n8n_DCC.xlsx --limit-prompts 1
 ```
 
-### Local mock run for UI testing only
+The evidence runner writes Excel workbooks and checkpoint files under results/controlled_ab_<timestamp>/. It requires OPENROUTER_API_KEY by default and does not use mock fallback.
+
+### Optional legacy dashboard
 
 ```powershell
-uv run python generate_responses.py
-uv run python dashboard.py --host 127.0.0.1 --port 8765
+python dashboard.py --host 127.0.0.1 --port 8765
 ```
-
-Local mock mode is useful for UI testing, but not for final validation evidence.
 
 ### Tests
 
 ```powershell
-uv run python -m compileall -q .
-uv run python -m unittest discover -s tests
+python -m compileall -q geo_demo tests run_controlled_ab.py
+python -m unittest discover -s tests
 ```
-
----
 
 ## 16. Dashboard / API endpoints
 

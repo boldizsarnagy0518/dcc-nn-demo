@@ -2,17 +2,17 @@
 
 ## Purpose of this document
 
-This file explains, in detail, where each actionable GEO recommendation is represented in the current project, which files implement it, which mockup assets support it, and how the dashboard validates it.
+This file explains, in detail, where each actionable GEO recommendation is represented in the current project, which files implement it, which mockup assets support it, and how the controlled A/B evidence pipeline validates it.
 
-The project is no longer designed as a full current-vs-improved API benchmark. The current / pre-mockup state is represented by the observed Excel/HTML benchmark. The API run is now focused on the **mockup / improved corpus only**.
+The project is now designed around a full controlled A/B evidence run. The observed Excel/HTML benchmark remains the original diagnosis, while the new validation pipeline compares current NN/current-like sources against improved sources built from the actionable recommendations and the clickable mockup site.
 
 Core logic:
 
 ```text
-Observed baseline dashboard
-→ recommendation mockup assets
-→ mockup-only API validation
-→ mention + cite/link + actionability uplift
+Original live benchmark diagnosis
+-> A=current controlled sources
+-> B=current + recommendation/mockup sources
+-> Excel evidence for answer quality, citation and actionability uplift
 ```
 
 ---
@@ -49,7 +49,7 @@ The mockup state is represented by:
 Default run mode:
 
 ```powershell
-uv run python generate_responses.py --live --models gemini
+python run_controlled_ab.py path/to/n8n_DCC.xlsx
 ```
 
 This now runs only:
@@ -61,7 +61,7 @@ corpus_mode = improved
 Therefore the lowest-cost full validation is:
 
 ```text
-48 prompts × 1 corpus mode × 1 model = 48 requests
+48 prompts x 2 corpus modes x 3 OpenRouter model-family routes = 288 requests
 ```
 
 ---
@@ -288,7 +288,7 @@ Key files:
 
 ### Where it appears in the dashboard
 
-The whole dashboard validates R4.
+The controlled A/B runner and Excel exports validate R4.
 
 Specific visible parts:
 
@@ -652,13 +652,13 @@ default corpus_mode = improved
 Recommended command:
 
 ```powershell
-uv run python generate_responses.py --live --models gemini
+python run_controlled_ab.py path/to/n8n_DCC.xlsx
 ```
 
 Request count:
 
 ```text
-48 prompts × 1 corpus mode × 1 model = 48 requests
+48 prompts x 2 corpus modes x 3 OpenRouter model-family routes = 288 requests
 ```
 
 ---
@@ -744,7 +744,7 @@ Check:
 - `.env` exists locally
 - `.env` is not committed
 - `GEMINI_API_KEY` is set
-- `GEMINI_MODEL` is set to a valid model, for example `gemini-2.5-flash` or `gemini-2.5-flash-lite`
+- `OPENROUTER_GEMINI_MODEL` is set to a valid model, for example `gemini-3-pro-preview` or `gemini-3-pro-preview`
 - dashboard answer badge shows `API - controlled sources`, not `Mock fallback`
 
 ### If links are not detected
@@ -769,19 +769,19 @@ Google AI Studio / Gemini API
 Recommended model:
 
 ```text
-gemini-2.5-flash
+gemini-3-pro-preview
 ```
 
 or if rate limits are tighter:
 
 ```text
-gemini-2.5-flash-lite
+gemini-3-pro-preview
 ```
 
 Recommended command:
 
 ```powershell
-uv run python generate_responses.py --live --models gemini
+python run_controlled_ab.py path/to/n8n_DCC.xlsx
 uv run python dashboard.py --host 127.0.0.1 --port 8765
 ```
 
@@ -803,7 +803,7 @@ The project now has a clear implementation chain:
 Observed baseline dashboard
 → baseline_visibility.json
 → improved mockup assets
-→ Gemini/API mockup-only run
+-> controlled A/B API run
 → dashboard KPI comparison
 → recommendation implementation evidence
 ```

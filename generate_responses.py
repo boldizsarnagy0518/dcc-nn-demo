@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from geo_demo.data import RESULTS_DIR, load_prompts
 from geo_demo.env import load_dotenv
 from geo_demo.providers import PROVIDERS
-from geo_demo.server import results_to_csv, run_benchmark, summarize_results
+from geo_demo.benchmark import results_to_csv, run_benchmark, summarize_results
 
 
 def parse_args():

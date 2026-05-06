@@ -1,0 +1,26 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/nn_actionable_site/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/nn_actionable_site/index.html"
+    },
+    {
+      "source": "/styles.css",
+      "destination": "/nn_actionable_site/styles.css"
+    },
+    {
+      "source": "/app.js",
+      "destination": "/nn_actionable_site/app.js"
+    },
+    {
+      "source": "/NN-logo.png",
+      "destination": "/nn_actionable_site/NN-logo.png"
+    }
+  ]
+}

@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NN Biztosító - Érthető biztosítási döntések</title>
+    <meta
+      name="description"
+      content="Közérthető biztosítási magyarázatok, nyugdíj-, életbiztosítási és egészségbiztosítási kalkulátorok, valamint megbízható döntési háttér az NN-től."
+    >
+    <meta property="og:title" content="NN Biztosító - Érthető biztosítási döntések">
+    <meta
+      property="og:description"
+      content="Kalkulátorok, érthető válaszok, források és következő lépések egy helyen."
+    >
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="./styles.css?v=20260505-tabs2">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "NN Biztosító Zrt.",
+        "url": "https://www.nn.hu/",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "NN Group"
+        },
+        "areaServed": "HU",
+        "knowsAbout": [
+          "életbiztosítás",
+          "nyugdíjbiztosítás",
+          "egészségbiztosítás",
+          "pénzügyi döntéstámogatás"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Mire nyújt védelmet az életbiztosítás?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Az életbiztosítás pénzügyi védelmet adhat a családnak váratlan haláleset, baleset vagy súlyos betegség esetén."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Milyen adójóváírás kapcsolódhat a nyugdíjbiztosításhoz?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nyugdíjbiztosítás esetén az éves befizetések 20%-a, legfeljebb évi 130 000 Ft adójóváírásként igényelhető a személyi jövedelemadóból."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mikor lehet releváns az Egészség Útlevél?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Az Egészség Útlevél olyan súlyos betegségek és beavatkozások esetén lehet fontos, amikor külföldi gyógykezelésre, második szakvéleményre vagy szervezési támogatásra lehet szükség."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="top-strip">
+      <div>
+        <a href="https://www.nn.hu/vallalati-megoldasok" target="_blank" rel="noreferrer">Vállalati megoldások</a>
+        <a href="https://www.nn.hu/magazin" target="_blank" rel="noreferrer">Magazin</a>
+        <a href="https://www.nn.hu/karrier" target="_blank" rel="noreferrer">Karrier</a>
+        <a href="https://www.nn.hu/elerhetosegek" target="_blank" rel="noreferrer">Elérhetőségek</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="#home" data-route="home" aria-label="NN kezdőlap">
+          <img
+            class="brand-image"
+            src="./NN-logo.png"
+            alt="NN"
+            onerror="this.onerror=null;this.src='https://www.nn.hu/documents/10182/8549886/NN+log%C3%B3+%281%29.png'"
+          >
+        </a>
+        <nav aria-label="Oldalak">
+          <a href="#calculators" data-route="calculators">Kalkulátorok</a>
+          <a href="#pages" data-route="pages">Kérdésalapú oldalak</a>
+          <a href="#trust" data-route="trust">Miért NN?</a>
+          <a href="#support" data-route="support">Ügyfélszolgálat</a>
+          <a href="#documents" data-route="documents">Dokumentumtár</a>
+        </nav>
+        <div class="nav-actions" aria-label="Gyors műveletek">
+          <span class="icon-button" aria-hidden="true">⌕</span>
+          <a class="login-link" href="https://direkt.nn.hu" target="_blank" rel="noreferrer">Belépés</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="page active" data-page="home">
+        <section class="nn-hero">
+          <div class="hero-card">
+            <p class="eyebrow">NN Biztosító</p>
+            <h1>Életed fontos döntéseihez érthető segítséget adunk.</h1>
+            <p>
+              Számolj, olvass közérthető válaszokat, majd lépj tovább a hozzád illő NN
+              megoldás felé. Nyugdíj, életbiztosítás és egészségbiztosítás egy átlátható
+              útvonalon.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-action" href="#calculators" data-route="calculators">Kalkulátorok kipróbálása</a>
+              <a class="secondary-action" href="#pages" data-route="pages">Kérdésalapú oldalak</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="decision-strip" aria-label="Fő döntési helyzetek">
+          <article>
+            <strong>01</strong>
+            <span>Nyugdíjtervezés</span>
+            <small>Rövid magyarázat a meglévő NN nyugdíjkalkulátor eredményéhez.</small>
+          </article>
+          <article>
+            <strong>02</strong>
+            <span>Életbiztosítás</span>
+            <small>Fedezeti nagyságrend a család pénzügyi védelméhez.</small>
+          </article>
+          <article>
+            <strong>03</strong>
+            <span>Egészség Útlevél</span>
+            <small>Gyors relevancia-ellenőrzés külföldi gyógykezelési helyzetekre.</small>
+          </article>
+          <article>
+            <strong>04</strong>
+            <span>Bizalmi háttér</span>
+            <small>Hivatalos információk, dokumentumok és pénzügyi háttér egy helyen.</small>
+          </article>
+        </section>
+
+        <section class="improvement-showcase" aria-label="Miben segít ez az oldal">
+          <div class="showcase-head">
+            <p class="eyebrow">Miben segít ez az oldal?</p>
+            <h2>Kevesebb keresgélés, több konkrét válasz.</h2>
+          </div>
+          <div class="showcase-grid">
+            <article>
+              <span>01</span>
+              <h3>Kérdésalapú oldalak</h3>
+              <p>A termékoldalak úgy indulnak, ahogy az ügyfél kérdez: mire jó, kinek való, és mi a következő lépés.</p>
+              <a href="#pages" data-route="pages">Oldalminta megnyitása</a>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Gyors becslés</h3>
+              <p>Az NN meglévő nyugdíjkalkulátora mellett az élet- és egészségbiztosítási kérdésekhez is kapsz első támpontot.</p>
+              <a href="#calculators" data-route="calculators">Kalkulátorok</a>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Hivatalos háttér</h3>
+              <p>Egyértelműbb, mikor hivatalos NN-információt, dokumentumot vagy külső tájékozódási pontot nézel.</p>
+              <a href="#trust" data-route="trust">Miért NN?</a>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Könnyebb ügyintézés</h3>
+              <p>A dokumentumok, feltételek és gyakori ügyintézési témák gyorsabban elérhetők.</p>
+              <a href="#documents" data-route="documents">Dokumentumtár</a>
+            </article>
+            <article>
+              <span>05</span>
+              <h3>Pénzügyi háttér, közérthetően</h3>
+              <p>Rövid magyarázatok segítenek abban, hogy ne csak a terméket, hanem a döntési szempontokat is átlásd.</p>
+              <a href="#trust" data-route="trust">További háttér</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="quick-help" aria-label="Segíthetünk">
+          <article class="help-card">
+            <h2>Segíthetünk?</h2>
+            <div class="help-links">
+              <a href="https://www.nn.hu/elerhetosegek" target="_blank" rel="noreferrer"><span>⌖</span>Elérhetőségek</a>
+              <a href="https://www.nn.hu/hasznos-informaciok" target="_blank" rel="noreferrer"><span>i</span>Hasznos információk</a>
+              <a href="https://www.nn.hu/ugyfelszolgalat" target="_blank" rel="noreferrer"><span>✉</span>Üzenetet küldök</a>
+              <a href="https://www.nn.hu/panaszkezeles" target="_blank" rel="noreferrer"><span>!</span>Panaszkezelés</a>
+            </div>
+          </article>
+          <article class="login-card">
+            <h2>Belépés</h2>
+            <p>Megtekintheti leveleit és szerződéseivel kapcsolatos legfontosabb adatait.</p>
+            <a href="https://direkt.nn.hu" target="_blank" rel="noreferrer">Belépek az NN Direktre</a>
+          </article>
+        </section>
+
+        <section class="product-grid" aria-label="Kiemelt NN oldalak">
+          <article>
+            <div class="product-image pension-img" aria-hidden="true"></div>
+            <h2>NN nyugdíjkalkulátor</h2>
+            <p>Az NN meglévő kalkulátora segít képet kapni a várható nyugdíjról.</p>
+            <a href="#calculators" data-route="calculators">Kiszámolom</a>
+          </article>
+          <article>
+            <div class="product-image health-img" aria-hidden="true"></div>
+            <h2>Egészség Útlevél</h2>
+            <p>Külföldi gyógykezelés lehetősége meghatározott betegségek esetére.</p>
+            <a href="#calculators" data-route="calculators">Megnézem</a>
+          </article>
+          <article>
+            <div class="product-image life-img" aria-hidden="true"></div>
+            <h2>Életbiztosítás</h2>
+            <p>Védelem a család pénzügyi biztonságáért váratlan helyzetekben.</p>
+            <a href="#pages" data-route="pages">Részletek</a>
+          </article>
+        </section>
+
+        <section class="home-reasons">
+          <div>
+            <p class="eyebrow">Miért kényelmesebb?</p>
+            <h2>A saját kérdésedből indul ki, nem egy hosszú termékleírásból.</h2>
+            <p>
+              Ha életbiztosításról, nyugdíjról vagy egészségbiztosításról tájékozódsz,
+              nem biztos, hogy azonnal terméknevekben gondolkodsz. Ez az oldal ezért
+              egyszerű kérdésekkel, rövid magyarázatokkal és számolható példákkal segít.
+            </p>
+          </div>
+          <div class="reason-list">
+            <span>Rövid, hétköznapi kérdések</span>
+            <span>Használható kalkulátorok</span>
+            <span>Ellenőrizhető információk</span>
+            <span>Részletek és kapcsolat egy kattintással</span>
+          </div>
+        </section>
+
+        <section class="nn-numbers" aria-label="NN számokban">
+          <article>
+            <strong>30+ éve</strong>
+            <span>Magyarországon</span>
+          </article>
+          <article>
+            <strong>69 milliárd Ft</strong>
+            <span>biztosítási szolgáltatás 2010-2024 között</span>
+          </article>
+          <article>
+            <strong>1100+</strong>
+            <span>biztosítási tanácsadó partner</span>
+          </article>
+          <article>
+            <strong>180 év</strong>
+            <span>NN cégcsoport szakértelem</span>
+          </article>
+        </section>
+      </section>
+
+      <section id="calculators" class="page" data-page="calculators">
+        <div class="page-head">
+          <p class="eyebrow">Kalkulátorok egy oldalon</p>
+          <h1>Számolj, értsd meg az eredményt, és lépj tovább az NN oldalára.</h1>
+          <p>
+            Az NN nyugdíjkalkulátora már ma is fontos segítség. Ezen az oldalon a számok
+            mellé rövid magyarázat is kerül: mit jelenthet az eredmény, milyen életbiztosítási
+            védelemben érdemes gondolkodni, és mikor lehet releváns az Egészség Útlevél.
+          </p>
+        </div>
+
+        <section class="calculator-promise" aria-label="Kalkulátor előnyök">
+          <article>
+            <strong>1.</strong>
+            <span>Egy hétköznapi kérdésből indulsz</span>
+          </article>
+          <article>
+            <strong>2.</strong>
+            <span>Kapsz egy érthető becslést vagy döntési támpontot</span>
+          </article>
+          <article>
+            <strong>3.</strong>
+            <span>Tovább tudsz lépni a hivatalos NN oldalra</span>
+          </article>
+        </section>
+
+        <section class="calculator-section">
+          <div class="section-intro">
+            <span class="step-number">01</span>
+            <div>
+              <h2>Nyugdíjtervezés és SZJA-jóváírás: mit mutat a szám, és mit érdemes utána megnézni?</h2>
+              <p>
+                Az NN meglévő nyugdíjkalkulátora jó kiindulópont. A kiegészítő magyarázat
+                abban segít, hogy az eredményt ne csak számként lásd, hanem értsd azt is,
+                hogyan kapcsolódhat hozzá az SZJA-jóváírás és a további tájékozódás.
+              </p>
+            </div>
+          </div>
+
+          <div class="tool-layout">
+            <form class="calculator" id="pensionForm">
+              <label>
+                Életkor
+                <input id="age" type="range" min="25" max="60" value="38">
+                <span data-value-for="age">38 év</span>
+              </label>
+              <label>
+                Havi nettó jövedelem
+                <input id="income" type="range" min="250000" max="1200000" step="25000" value="550000">
+                <span data-value-for="income">550 000 Ft</span>
+              </label>
+              <label>
+                Havi megtakarítás nyugdíjcélra
+                <input id="saving" type="range" min="10000" max="160000" step="5000" value="45000">
+                <span data-value-for="saving">45 000 Ft</span>
+              </label>
+              <div>
+                <span class="field-caption">Célzott nyugdíjkori jövedelemszint</span>
+                <div class="toggle-row" role="group" aria-label="Nyugdíjcél">
+                  <button type="button" class="segmented active" data-target-income="70">70%</button>
+                  <button type="button" class="segmented" data-target-income="80">80%</button>
+                  <button type="button" class="segmented" data-target-income="90">90%</button>
+                </div>
+              </div>
+            </form>
+
+            <aside class="result-card">
+              <span class="result-label">Becsült havi nyugdíjrés</span>
+              <strong id="pensionGap">0 Ft</strong>
+              <p id="pensionNarrative"></p>
+              <p class="microcopy">Tájékoztató becslés. A tényleges eredményt több személyes és piaci tényező befolyásolhatja.</p>
+              <dl>
+                <div><dt>Becsült állami nyugdíj</dt><dd id="statePension">0 Ft</dd></div>
+                <div><dt>SZJA-jóváírás évente</dt><dd id="taxCredit">0 Ft</dd></div>
+                <div><dt>Nyugdíjkorhatárig hátra</dt><dd id="yearsLeft">0 év</dd></div>
+              </dl>
+              <a class="primary-action full" href="https://www.nn.hu/nyugdijkalkulator">
+                Tovább a meglévő NN nyugdíjkalkulátorhoz
+              </a>
+            </aside>
+          </div>
+        </section>
+
+        <section class="calculator-section">
+          <div class="section-intro">
+            <span class="step-number">02</span>
+            <div>
+              <h2>Életbiztosítási fedezetbecslő</h2>
+              <p>
+                Egy életbiztosítási döntésnél a család pénzügyi védelme a kiindulópont:
+                fennálló hitel, kieső jövedelem, gyermekek várható kiadásai és meglévő
+                tartalék együtt adnak értelmezhető nagyságrendet.
+              </p>
+            </div>
+          </div>
+
+          <div class="tool-layout">
+            <form class="calculator" id="lifeForm">
+              <label>
+                Havi családi nettó jövedelem
+                <input id="familyIncome" type="range" min="300000" max="1800000" step="50000" value="750000">
+                <span data-value-for="familyIncome">750 000 Ft</span>
+              </label>
+              <label>
+                Fennálló hitel
+                <input id="debt" type="range" min="0" max="80000000" step="1000000" value="24000000">
+                <span data-value-for="debt">24 000 000 Ft</span>
+              </label>
+              <label>
+                Gyermekek száma
+                <input id="children" type="range" min="0" max="4" step="1" value="2">
+                <span data-value-for="children">2</span>
+              </label>
+              <label>
+                Meglévő tartalék
+                <input id="reserve" type="range" min="0" max="20000000" step="500000" value="3000000">
+                <span data-value-for="reserve">3 000 000 Ft</span>
+              </label>
+            </form>
+
+            <aside class="result-card">
+              <span class="result-label">Becsült fedezeti sáv</span>
+              <strong id="lifeCover">0 Ft</strong>
+              <p id="lifeNarrative"></p>
+              <p class="microcopy">Ez nem díjszámítás, hanem egy első beszélgetési alap a szükséges védelem nagyságrendjéről.</p>
+              <div class="next-step-list">
+                <span>Lakáshitel fedezése</span>
+                <span>2-5 évnyi kieső jövedelem</span>
+                <span>Gyermekek várható kiadásai</span>
+              </div>
+              <a class="primary-action full" href="https://www.nn.hu/eletbiztositas/amulett/miert-eri-meg-onnek">
+                Tovább az NN életbiztosítás oldalra
+              </a>
+            </aside>
+          </div>
+        </section>
+
+        <section class="calculator-section">
+          <div class="section-intro">
+            <span class="step-number">03</span>
+            <div>
+              <h2>Egészség Útlevél relevancia-ellenőrzés</h2>
+              <p>
+                Az Egészség Útlevél külföldi gyógykezeléshez kapcsolódó biztosítás.
+                A rövid kérdéssor azt mutatja meg, mennyire illeszkedik a termék
+                azokhoz a helyzetekhez, amikor második orvosi szakvéleményre,
+                szervezési támogatásra vagy külföldi ellátásra lehet szükség.
+              </p>
+            </div>
+          </div>
+
+          <div class="health-grid">
+            <form class="calculator compact" id="healthForm">
+              <label class="check-card">
+                <input type="checkbox" id="concern" checked>
+                Szeretnék második orvosi szakvélemény opciót
+              </label>
+              <label class="check-card">
+                <input type="checkbox" id="travelCare" checked>
+                Fontos, hogy az utazás és szállás szervezése is támogatott legyen
+              </label>
+              <label class="check-card">
+                <input type="checkbox" id="familySupport">
+                Kísérővel mennék külföldi kezelésre
+              </label>
+              <label>
+                Életkor
+                <input id="healthAge" type="range" min="18" max="64" value="42">
+                <span data-value-for="healthAge">42 év</span>
+              </label>
+            </form>
+
+            <aside class="result-card">
+              <span class="result-label">Relevancia pontszám</span>
+              <strong id="healthScore">0 / 100</strong>
+              <p id="healthNarrative"></p>
+              <p class="microcopy">Nem egészségügyi tanácsadás. Szerződéskötés előtt mindig a feltételek áttekintése szükséges.</p>
+              <dl>
+                <div><dt>Szolgáltatási összeglimit</dt><dd>2 000 000 EUR</dd></div>
+                <div><dt>Főbb helyzetek</dt><dd>Daganat, szívműtét, idegsebészet, élődonoros szervátültetés</dd></div>
+              </dl>
+              <a class="primary-action full" href="https://www.nn.hu/egeszsegbiztositas/egeszseg-utlevel/miert-eri-meg-onnek">
+                Megnézem az Egészség Útlevelet
+              </a>
+            </aside>
+          </div>
+        </section>
+      </section>
+
+      <section id="pages" class="page" data-page="pages">
+        <div class="page-head">
+          <p class="eyebrow">Kérdésalapú oldalak</p>
+          <h1>Így nézne ki egy NN termékoldal, ha az ügyfél kérdéseiből indulna ki.</h1>
+          <p>
+            Ez a rész a második actionable recommendation kézzelfogható mintája: a hosszú,
+            kategóriaalapú termékleírások helyett rövid ügyfélkérdések, azonnali válaszok
+            és egyértelmű következő lépések vezetik végig az érdeklődőt.
+          </p>
+        </div>
+
+        <section class="before-after">
+          <div>
+            <span>1. Kérdés</span>
+            <strong>Az oldal címei valós ügyfélkérdésekből indulnak ki.</strong>
+          </div>
+          <div>
+            <span>2. Válasz</span>
+            <strong>Minden blokk elején rövid, idézhető összefoglaló segít dönteni.</strong>
+          </div>
+          <div>
+            <span>3. Következő lépés</span>
+            <strong>A válasz után kalkulátor, dokumentum vagy tanácsadói kapcsolat következik.</strong>
+          </div>
+        </section>
+
+        <section class="question-rewrite-demo" aria-label="Termékoldalak átírása kérdésekre">
+          <div class="rewrite-why">
+            <h2>Mit demonstrál ez az oldal?</h2>
+            <ul>
+              <li>A mostani termékoldalak üzeneteit kérdés-válasz szerkezetbe rendezi.</li>
+              <li>Megmutatja, hogyan lehet egy NN-oldal egyszerre ügyfélbarát és könnyen idézhető.</li>
+              <li>A hosszú leírásokat rövid döntési blokkokra bontja.</li>
+              <li>Minden válaszhoz konkrét továbblépést kapcsol: számolás, dokumentum vagy kapcsolatfelvétel.</li>
+            </ul>
+          </div>
+          <div class="rewrite-comparison">
+            <div class="rewrite-column muted-column">
+              <span>Kevésbé konkrét címek</span>
+              <strong>Miért válassza életbiztosításainkat?</strong>
+              <strong>Milyen esetekre készülhet fel?</strong>
+              <strong>Életbiztosítás 3 lépésben</strong>
+              <strong>További információk</strong>
+            </div>
+            <div class="rewrite-column question-column">
+              <span>Ügyfélkérdésként megfogalmazva</span>
+              <strong>Mi az életbiztosítás és mire nyújt védelmet?</strong>
+              <strong>Mennyi életbiztosítást érdemes kötni?</strong>
+              <strong>Milyen adókedvezmény jár nyugdíjbiztosítás után?</strong>
+              <strong>Miben különbözik a kockázati és a megtakarításos életbiztosítás?</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-patterns" aria-label="Új oldalépítési minta">
+          <article>
+            <h2>Rövid válasz az oldal tetején</h2>
+            <p>Az ügyfél hamar megérti, miről szól a biztosítás, és melyik élethelyzetben lehet releváns.</p>
+          </article>
+          <article>
+            <h2>Gyakori ügyfélkérdések</h2>
+            <p>A tartalom rövid kérdésekre tagolódik, így könnyebb megtalálni azt a részt, ami éppen fontos.</p>
+          </article>
+          <article>
+            <h2>Következő lépés minden blokk végén</h2>
+            <p>Az oldal nem zsákutca: kalkulátorhoz, dokumentumhoz, részletekhez vagy tanácsadóhoz vezet.</p>
+          </article>
+        </section>
+
+        <article class="rewrite-page">
+          <div class="rewrite-head">
+            <span class="step-number">01</span>
+            <div>
+              <p class="eyebrow">Életbiztosítás</p>
+              <h2>Mi az életbiztosítás, és mekkora védelemre lehet szükség?</h2>
+              <p>
+                Egy életbiztosítási oldal akkor hasznos, ha nem csak termékneveket mutat,
+                hanem segít megérteni, milyen élethelyzetben milyen kérdéseket érdemes feltenni.
+              </p>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <strong>Az oldal röviden</strong>
+            <span>Segít átgondolni, milyen családi kiadásokra, tartozásokra és bevételkiesésre érdemes védelmet tervezni.</span>
+            <strong>Következő lépés</strong>
+            <span>Használd a fedezetbecslőt, majd nézd meg az NN életbiztosítási lehetőségeit.</span>
+          </div>
+
+          <div class="qa-list">
+            <details open>
+              <summary>Mire nyújt védelmet az életbiztosítás?</summary>
+              <p>
+                Az életbiztosítás pénzügyi védelmet adhat a családnak váratlan haláleset,
+                baleset vagy súlyos betegség esetén. A cél az, hogy egy nehéz élethelyzetben
+                a család ne maradjon azonnal jövedelem, tartalék vagy hitelfedezet nélkül.
+              </p>
+            </details>
+            <details>
+              <summary>Mennyi életbiztosítási fedezetet érdemes választani?</summary>
+              <p>
+                A fedezet nagysága általában a fennálló hitelektől, a család havi kiadásaitól,
+                a gyermekek számától és a meglévő megtakarításoktól függ. Kiindulópontként
+                érdemes több évnyi kieső jövedelemmel és a nagyobb tartozásokkal együtt számolni.
+              </p>
+            </details>
+            <details>
+              <summary>Miben más a kockázati és a megtakarításos életbiztosítás?</summary>
+              <p>
+                A kockázati életbiztosítás elsősorban védelemről szól: ha bekövetkezik a
+                biztosítási esemény, a szerződésben meghatározott szolgáltatás segítheti a
+                hozzátartozókat. A megtakarításos konstrukciók ennél hosszabb távú pénzügyi
+                célokhoz is kapcsolódhatnak.
+              </p>
+            </details>
+            <details>
+              <summary>Mikor érdemes tanácsadóval beszélni?</summary>
+              <p>
+                Tanácsadói beszélgetés akkor különösen hasznos, ha van lakáshitel, gyermek,
+                közös családi költségvetés vagy vállalkozói jövedelem. Ilyenkor nem csak a
+                díj számít, hanem az is, hogy a védelem valóban a család kockázataihoz igazodjon.
+              </p>
+            </details>
+          </div>
+        </article>
+
+        <article class="rewrite-page">
+          <div class="rewrite-head">
+            <span class="step-number">02</span>
+            <div>
+              <p class="eyebrow">Nyugdíjbiztosítás</p>
+              <h2>Mennyi pénz hiányozhat nyugdíjkor, és hogyan segíthet az SZJA-jóváírás?</h2>
+              <p>
+                A nyugdíjoldal akkor segít igazán, ha a termékelőnyök mellett azt is megmutatja,
+                milyen kérdésekből érdemes elindulni: várható jövedelem, megtakarítási cél,
+                időtáv és adójóváírás.
+              </p>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <strong>Az oldal röviden</strong>
+            <span>Megmutatja, hogyan kapcsolódik össze a várható nyugdíj, a megtakarítási cél és az SZJA-jóváírás.</span>
+            <strong>Következő lépés</strong>
+            <span>Nyisd meg az NN nyugdíjkalkulátorát, majd nézd át, milyen havi megtakarítás illeszkedhet a célodhoz.</span>
+          </div>
+
+          <div class="qa-list">
+            <details open>
+              <summary>Mi az a nyugdíjrés?</summary>
+              <p>
+                Nyugdíjrésnek azt a különbséget nevezzük, amely a várható nyugdíjkori bevétel
+                és a kívánt havi életszínvonal között keletkezhet. Ez nem pontos előrejelzés,
+                hanem egy gondolkodási keret: segít időben látni, mekkora megtakarítási cél
+                lehet reális.
+              </p>
+            </details>
+            <details>
+              <summary>Milyen adójóváírás kapcsolódhat a nyugdíjbiztosításhoz?</summary>
+              <p>
+                Nyugdíjbiztosítás esetén az éves befizetések 20%-a, legfeljebb évi
+                130 000 Ft adójóváírásként igényelhető a személyi jövedelemadóból.
+                Ez a szabály erősítheti a hosszú távú megtakarítási fegyelmet, de a döntésnél
+                a költségeket, futamidőt és rugalmasságot is mérlegelni kell.
+              </p>
+            </details>
+            <details>
+              <summary>Mikor érdemes elkezdeni?</summary>
+              <p>
+                Minél több idő van hátra a nyugdíjig, annál több lehetőség van kisebb havi
+                összegekből építkezni. Később is lehet dönteni, de ilyenkor gyakran nagyobb
+                havi megtakarításra van szükség ugyanahhoz a célhoz.
+              </p>
+            </details>
+          </div>
+        </article>
+
+        <article class="rewrite-page">
+          <div class="rewrite-head">
+            <span class="step-number">03</span>
+            <div>
+              <p class="eyebrow">Egészség Útlevél</p>
+              <h2>Mikor lehet értékes a külföldi gyógykezeléshez kapcsolódó biztosítás?</h2>
+              <p>
+                Az Egészség Útlevél kommunikációjánál a legfontosabb, hogy az ügyfél gyorsan
+                megértse: ez nem általános magánorvosi csomag, hanem speciális, súlyos
+                helyzetekre szóló védelem.
+              </p>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <strong>Az oldal röviden</strong>
+            <span>Segít elválasztani az Egészség Útlevelet az általános egészségbiztosításoktól, és megmutatja, milyen súlyos helyzetekben lehet releváns.</span>
+            <strong>Következő lépés</strong>
+            <span>Ellenőrizd, kapcsolódhat-e az élethelyzetedhez, majd olvasd el a részletes feltételeket az NN oldalán.</span>
+          </div>
+
+          <div class="qa-list">
+            <details open>
+              <summary>Milyen helyzetekben lehet releváns?</summary>
+              <p>
+                Az Egészség Útlevél olyan súlyos betegségek és beavatkozások esetén lehet
+                fontos, amikor a külföldi gyógykezelés, a második orvosi szakvélemény vagy
+                a kezeléssel kapcsolatos szervezési támogatás különösen nagy értéket jelenthet.
+              </p>
+            </details>
+            <details>
+              <summary>Mit jelent a 2 millió eurós szolgáltatási összeglimit?</summary>
+              <p>
+                A szolgáltatási összeglimit azt mutatja meg, hogy a biztosítás a feltételekben
+                meghatározott esetekben milyen felső határig nyújthat finanszírozási keretet.
+                A pontos tartalom mindig a szerződési feltételektől függ.
+              </p>
+            </details>
+            <details>
+              <summary>Mi legyen a következő lépés?</summary>
+              <p>
+                Elsőként érdemes átnézni, milyen betegségekre, beavatkozásokra és feltételekre
+                vonatkozik a biztosítás. Ha a helyzet releváns, a következő lépés lehet az
+                NN termékoldal részletes áttekintése vagy tanácsadói egyeztetés.
+              </p>
+            </details>
+          </div>
+        </article>
+      </section>
+
+      <section id="trust" class="page" data-page="trust">
+        <div class="page-head">
+          <p class="eyebrow">Miért NN?</p>
+          <h1>Biztosításról dönteni könnyebb, ha a háttér is átlátható.</h1>
+          <p>
+            Biztosításnál az ügyfél azt szeretné látni, hogy stabil, elérhető és
+            ellenőrizhető szolgáltatóval beszél. Ezért fontosak a hivatalos adatok,
+            az átlátható dokumentumok, a külső tájékozódási pontok és a közérthető
+            pénzügyi tartalmak.
+          </p>
+        </div>
+
+        <div class="content-tabs" aria-label="Bizalmi témák">
+          <a href="#trust-official" class="active" data-scroll-target="trust-official">Hivatalos információ</a>
+          <a href="#trust-compare" data-scroll-target="trust-compare">Összehasonlítás</a>
+          <a href="#trust-research" data-scroll-target="trust-research">Pénzügyi háttér</a>
+        </div>
+
+        <section class="identity-flow">
+          <div class="identity-card highlighted">
+            <strong>nn.hu</strong>
+            <span>Hivatalos NN információk, termékoldalak, kalkulátorok és elérhetőségek.</span>
+          </div>
+          <div class="identity-card">
+            <strong>NN Biztosító Zrt.</strong>
+            <span>Könnyen azonosítható vállalati adatok, kapcsolati pontok és termékterületek.</span>
+          </div>
+          <div class="identity-card">
+            <strong>Külső tájékozódási pontok</strong>
+            <span>MNB, pénzügyi média, összehasonlító oldalak és nyilvános vállalati profilok.</span>
+          </div>
+        </section>
+
+        <section class="trust-grid">
+          <article id="trust-official">
+            <h2>Hivatalos vállalati információ</h2>
+            <p>
+              Jó, ha az ügyfél gyorsan látja, hogy a tartalom az NN hivatalos oldalához
+              kapcsolódik. A név, a vállalati háttér, az elérhetőség és a termékterületek
+              legyenek könnyen megtalálhatók.
+            </p>
+            <a href="https://www.nn.hu/rolunk" target="_blank" rel="noreferrer">Rólunk</a>
+          </article>
+          <article id="trust-compare">
+            <h2>Összehasonlítási környezet</h2>
+            <p>
+              Sok ügyfél több biztosítót, kalkulátort vagy pénzügyi oldalt is megnéz.
+              Ilyenkor az segít, ha az NN oldal világosan megmutatja, mire nyújt védelmet
+              egy termék, milyen dokumentumokat érdemes átnézni, és mikor hasznos
+              tanácsadóval beszélni.
+            </p>
+            <a href="#pages" data-route="pages">Megnézem a döntési kérdéseket</a>
+          </article>
+          <article>
+            <h2>Független tájékozódási pontok</h2>
+            <p>
+              Sok döntés előtt természetes, hogy az ügyfél máshol is utánanéz a témának.
+              Hasznos, ha könnyen eljut a biztosítási piacról, fogyasztóvédelemről,
+              termékfeltételekről és pénzügyi tudnivalókról szóló anyagokhoz.
+            </p>
+            <a href="https://www.nn.hu/dokumentumtar" target="_blank" rel="noreferrer">Dokumentumtár</a>
+          </article>
+          <article id="trust-research">
+            <h2>Éves pénzügyi döntési kutatás</h2>
+            <p>
+              Egy évente frissülő magyar kutatás megmutathatná, hogyan gondolkodnak az emberek
+              biztosításról, nyugdíjról és pénzügyi kockázatokról. Ez nem értékesítési szöveg,
+              hanem olyan háttéranyag, amelyből az ügyfelek és az újságírók is tanulhatnak.
+            </p>
+            <a href="https://www.nn.hu/magazin" target="_blank" rel="noreferrer">Magazin</a>
+          </article>
+        </section>
+
+        <section class="research-roadmap">
+          <div class="roadmap-item">
+            <strong>1</strong>
+            <h2>Tervezés</h2>
+            <p>Minta, célcsoportok, fő kérdések és biztosítási témák meghatározása.</p>
+          </div>
+          <div class="roadmap-item">
+            <strong>2</strong>
+            <h2>Publikálás</h2>
+            <p>Riport, vezetői összefoglaló, cikkek és letölthető grafikonok készítése.</p>
+          </div>
+          <div class="roadmap-item">
+            <strong>3</strong>
+            <h2>Megosztás</h2>
+            <p>Pénzügyi média, hírlevelek, szakmai események és közösségi csatornák.</p>
+          </div>
+          <div class="roadmap-item">
+            <strong>4</strong>
+            <h2>Frissítés</h2>
+            <p>Évenkénti ismétlés, trendek követése, új döntési helyzetek feldolgozása.</p>
+          </div>
+        </section>
+      </section>
+
+      <section id="support" class="page" data-page="support">
+        <div class="page-head compact-head">
+          <p class="eyebrow">Ügyfélszolgálat</p>
+          <h1>Miben segíthetünk?</h1>
+          <p>
+            Gyors útvonalak a leggyakoribb ügyintézési helyzetekhez. A cél, hogy az ügyfél
+            ne keressen sokáig: kérdés, rövid magyarázat, következő lépés.
+          </p>
+        </div>
+
+        <section class="search-panel" aria-label="Ügyfélszolgálati kereső">
+          <label>
+            Keresés az ügyfélszolgálati témák között
+            <div class="search-row">
+              <input id="supportSearch" type="search" placeholder="Például: díjfizetés, szerződésmódosítás, szolgáltatási igény">
+              <button type="button">Keresés</button>
+            </div>
+          </label>
+        </section>
+
+        <section class="support-list" aria-label="Gyakori kérdések">
+          <article data-support-topic="direkt elektronikus kommunikáció regisztráció belépés levelek szerződésadatok">
+            <div>
+              <h2>NN Direkt és elektronikus kommunikáció</h2>
+              <p>Regisztráció, belépés, online levelek és szerződésadatok kezelése egy helyen.</p>
+            </div>
+            <a href="https://direkt.nn.hu" target="_blank" rel="noreferrer">Belépek</a>
+          </article>
+          <article data-support-topic="díjfizetés bankkártyás fizetés átutalás gyakoriság díjrendezés">
+            <div>
+              <h2>Díjfizetés</h2>
+              <p>Díjrendezés, bankkártyás fizetés, átutalási tudnivalók és fizetési gyakoriság.</p>
+            </div>
+            <a href="https://www.nn.hu/ugyfelszolgalat" target="_blank" rel="noreferrer">Részletek</a>
+          </article>
+          <article data-support-topic="szerződés adatmódosítás elérhetőség kedvezményezett díjfizetés személyes adatok">
+            <div>
+              <h2>Szerződés- és adatmódosítás</h2>
+              <p>Elérhetőségek, kedvezményezett, díjfizetési adatok vagy személyes adatok módosítása.</p>
+            </div>
+            <a href="https://www.nn.hu/ugyfelszolgalat" target="_blank" rel="noreferrer">Megnézem</a>
+          </article>
+          <article data-support-topic="szolgáltatási igény bejelentése biztosítási esemény dokumentum kifizetés">
+            <div>
+              <h2>Szolgáltatási igény bejelentése</h2>
+              <p>Mi történik biztosítási esemény után, milyen dokumentumokra lehet szükség, hol indul az ügyintézés.</p>
+            </div>
+            <a href="https://www.nn.hu/ugyfelszolgalat" target="_blank" rel="noreferrer">Tovább</a>
+          </article>
+        </section>
+      </section>
+
+      <section id="documents" class="page" data-page="documents">
+        <div class="page-head compact-head">
+          <p class="eyebrow">Dokumentumtár</p>
+          <h1>Találd meg gyorsabban a fontos dokumentumokat.</h1>
+          <p>
+            A dokumentumtár akkor kényelmes, ha gyorsan szűkíthető a találati lista,
+            és a letöltési sorokból azonnal látszik, melyik dokumentum mire való.
+          </p>
+        </div>
+
+        <section class="document-filter" aria-label="Dokumentum szűrők">
+          <label>
+            Terméknév
+            <input id="documentSearch" type="text" placeholder="Kezdje el begépelni a terméknevet">
+          </label>
+          <label>
+            Ügyfélkör
+            <select id="audienceFilter">
+              <option value="">Válasszon egy opciót</option>
+              <option value="private">Magánszemély</option>
+              <option value="business">Vállalati ügyfél</option>
+            </select>
+          </label>
+          <label>
+            Kockázatviselés kezdete
+            <input type="date" value="2026-05-04">
+          </label>
+        </section>
+
+        <section class="document-table" aria-label="Dokumentum lista">
+          <div class="doc-row header">
+            <span>Dokumentum neve</span>
+            <span>Érvényesség</span>
+            <span>Letöltés</span>
+          </div>
+          <div class="doc-row" data-doc-name="általános életbiztosítási szabályzat" data-audience="private">
+            <strong>Általános Életbiztosítási Szabályzat</strong>
+            <span>2026. január 1-től</span>
+            <a href="https://www.nn.hu/dokumentumtar" target="_blank" rel="noreferrer">Letöltöm</a>
+          </div>
+          <div class="doc-row" data-doc-name="biztosítási adatvédelmi tájékoztató" data-audience="private business">
+            <strong>Biztosítási adatvédelmi tájékoztató</strong>
+            <span>2026. január 12-től</span>
+            <a href="https://www.nn.hu/dokumentumtar" target="_blank" rel="noreferrer">Letöltöm</a>
+          </div>
+          <div class="doc-row" data-doc-name="nyugdíjbiztosítási adózási tájékoztató" data-audience="private">
+            <strong>Nyugdíjbiztosítási adózási tájékoztató</strong>
+            <span>Aktuális</span>
+            <a href="https://www.nn.hu/dokumentumtar" target="_blank" rel="noreferrer">Letöltöm</a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js?v=20260505-tabs3"></script>
+  </body>
+</html>

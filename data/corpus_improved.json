@@ -6,8 +6,18 @@
     "pillar": "Clarity",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/eletbiztositas-qa",
-    "tags": ["életbiztosítás", "kockázati életbiztosítás", "család", "fedezet", "Amulett", "Maraton"],
-    "body": "Az életbiztosítás célja, hogy váratlan haláleset, baleset vagy súlyos betegség esetén pénzügyi védelmet adjon a családnak. Az NN mockolt Q&A oldala külön válaszolja meg, mikor érdemes kockázati, megtakarításos vagy időskori életbiztosításban gondolkodni, és minden válasz terméklinket és ajánlatkérési CTA-t tartalmaz."
+    "tags": [
+      "életbiztosítás",
+      "kockázati életbiztosítás",
+      "család",
+      "fedezet",
+      "Amulett",
+      "Maraton"
+    ],
+    "body": "Az életbiztosítás célja, hogy váratlan haláleset, baleset vagy súlyos betegség esetén pénzügyi védelmet adjon a családnak. Az NN mockolt Q&A oldala külön válaszolja meg, mikor érdemes kockázati, megtakarításos vagy időskori életbiztosításban gondolkodni, és minden válasz terméklinket és ajánlatkérési CTA-t tartalmaz.",
+    "recommendation_ids": [
+      "R1"
+    ]
   },
   {
     "id": "improved-life-cover-guide",
@@ -16,8 +26,18 @@
     "pillar": "Actionability",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/csaladi-eletbiztositas-fedezet",
-    "tags": ["fedezet", "család", "lakáshitel", "gyermek", "jövedelem", "döntési guide"],
-    "body": "A döntési guide szerint a családi fedezet becslésénél figyelembe kell venni a fennálló lakáshitelt, 2-5 évnyi kieső jövedelmet, a gyermekek várható kiadásait és a temetési vagy hagyatéki költségeket. A guide az NN életbiztosítási fedezetbecslő kalkulátorára és tanácsadói beszélgetésre irányít."
+    "tags": [
+      "fedezet",
+      "család",
+      "lakáshitel",
+      "gyermek",
+      "jövedelem",
+      "döntési guide"
+    ],
+    "body": "A döntési guide szerint a családi fedezet becslésénél figyelembe kell venni a fennálló lakáshitelt, 2-5 évnyi kieső jövedelmet, a gyermekek várható kiadásait és a temetési vagy hagyatéki költségeket. A guide az NN életbiztosítási fedezetbecslő kalkulátorára és tanácsadói beszélgetésre irányít.",
+    "recommendation_ids": [
+      "R7"
+    ]
   },
   {
     "id": "improved-life-calculator",
@@ -26,8 +46,19 @@
     "pillar": "Actionability",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/eletbiztositas-kalkulator",
-    "tags": ["kalkulátor", "fedezet", "család", "lakáshitel", "ajánlatkérés", "tanácsadó"],
-    "body": "A mockolt NN fedezetbecslő kalkulátor három perc alatt becslést ad arra, mekkora életbiztosítási védelem lehet indokolt a család jövedelme, hitele, gyermekei és tartalékai alapján. A kalkuláció végén az ügyfél személyre szabott guide-ot kap, majd ajánlatkérést vagy tanácsadói visszahívást indíthat."
+    "tags": [
+      "kalkulátor",
+      "fedezet",
+      "család",
+      "lakáshitel",
+      "ajánlatkérés",
+      "tanácsadó"
+    ],
+    "body": "A mockolt NN fedezetbecslő kalkulátor három perc alatt becslést ad arra, mekkora életbiztosítási védelem lehet indokolt a család jövedelme, hitele, gyermekei és tartalékai alapján. A kalkuláció végén az ügyfél személyre szabott guide-ot kap, majd ajánlatkérést vagy tanácsadói visszahívást indíthat.",
+    "recommendation_ids": [
+      "R9",
+      "R10"
+    ]
   },
   {
     "id": "improved-pension-tax-qa",
@@ -36,8 +67,18 @@
     "pillar": "Clarity",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/nyugdijbiztositas-adokedvezmeny",
-    "tags": ["nyugdíjbiztosítás", "Motiva", "adójóváírás", "SZJA", "130000", "nyugdíj"],
-    "body": "A mockolt Q&A oldal röviden elmagyarázza, hogy nyugdíjbiztosításnál az éves befizetések 20 százaléka, legfeljebb évi 130 ezer forint adójóváírásként igényelhető a személyi jövedelemadóból. A válasz a Motiva nyugdíjbiztosítási termékoldalra, az SZJA-adójóváírás kalkulátorra és tanácsadói időpontfoglalásra mutat."
+    "tags": [
+      "nyugdíjbiztosítás",
+      "Motiva",
+      "adójóváírás",
+      "SZJA",
+      "130000",
+      "nyugdíj"
+    ],
+    "body": "A mockolt Q&A oldal röviden elmagyarázza, hogy nyugdíjbiztosításnál az éves befizetések 20 százaléka, legfeljebb évi 130 ezer forint adójóváírásként igényelhető a személyi jövedelemadóból. A válasz a Motiva nyugdíjbiztosítási termékoldalra, az SZJA-adójóváírás kalkulátorra és tanácsadói időpontfoglalásra mutat.",
+    "recommendation_ids": [
+      "R1"
+    ]
   },
   {
     "id": "improved-pension-gap-calculator",
@@ -46,8 +87,17 @@
     "pillar": "Actionability",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/nyugdijres-kalkulator",
-    "tags": ["nyugdíjrés", "nyugdíjkalkulátor", "Motiva", "megtakarítás", "következő lépés"],
-    "body": "A nyugdíjrés kalkulátor megmutatja, mekkora különbség lehet a várt állami nyugdíj és a kívánt havi jövedelem között. A mock eredmény életkor és megtakarítási cél alapján javasol következő lépést: guide olvasása, Motiva termékinformáció vagy személyes tanácsadói beszélgetés."
+    "tags": [
+      "nyugdíjrés",
+      "nyugdíjkalkulátor",
+      "Motiva",
+      "megtakarítás",
+      "következő lépés"
+    ],
+    "body": "A nyugdíjrés kalkulátor megmutatja, mekkora különbség lehet a várt állami nyugdíj és a kívánt havi jövedelem között. A mock eredmény életkor és megtakarítási cél alapján javasol következő lépést: guide olvasása, Motiva termékinformáció vagy személyes tanácsadói beszélgetés.",
+    "recommendation_ids": [
+      "R9"
+    ]
   },
   {
     "id": "improved-tax-calculator",
@@ -56,8 +106,17 @@
     "pillar": "Actionability",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/szja-adokedvezmeny-kalkulator",
-    "tags": ["SZJA", "adójóváírás", "nyugdíjbiztosítás", "kalkulátor", "130000"],
-    "body": "Az SZJA kalkulátor kiszámolja, hogy az ügyfél éves nyugdíjbiztosítási befizetése után mekkora adójóváírást érhet el a 20 százalékos, maximum 130 ezer forintos szabály mellett. Az eredmény terméklinket és ajánlatkérési CTA-t ad."
+    "tags": [
+      "SZJA",
+      "adójóváírás",
+      "nyugdíjbiztosítás",
+      "kalkulátor",
+      "130000"
+    ],
+    "body": "Az SZJA kalkulátor kiszámolja, hogy az ügyfél éves nyugdíjbiztosítási befizetése után mekkora adójóváírást érhet el a 20 százalékos, maximum 130 ezer forintos szabály mellett. Az eredmény terméklinket és ajánlatkérési CTA-t ad.",
+    "recommendation_ids": [
+      "R9"
+    ]
   },
   {
     "id": "improved-pension-comparison-guide",
@@ -66,8 +125,17 @@
     "pillar": "Clarity",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/nyugdijbiztositas-vagy-onyp",
-    "tags": ["nyugdíjbiztosítás", "önkéntes nyugdíjpénztár", "összehasonlítás", "40 évesen", "döntés"],
-    "body": "A döntési guide táblázatosan hasonlítja össze a nyugdíjbiztosítás és az önkéntes nyugdíjpénztár fő szempontjait: adójóváírás, rugalmasság, befektetési választás, költség, örökölhetőség és tanácsadói támogatás. A 40 éves ügyfélnek külön élethelyzet-alapú döntési útvonalat ad."
+    "tags": [
+      "nyugdíjbiztosítás",
+      "önkéntes nyugdíjpénztár",
+      "összehasonlítás",
+      "40 évesen",
+      "döntés"
+    ],
+    "body": "A döntési guide táblázatosan hasonlítja össze a nyugdíjbiztosítás és az önkéntes nyugdíjpénztár fő szempontjait: adójóváírás, rugalmasság, befektetési választás, költség, örökölhetőség és tanácsadói támogatás. A 40 éves ügyfélnek külön élethelyzet-alapú döntési útvonalat ad.",
+    "recommendation_ids": [
+      "R7"
+    ]
   },
   {
     "id": "improved-health-qa",
@@ -76,8 +144,17 @@
     "pillar": "Clarity",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/egeszseg-utlevel-qa",
-    "tags": ["egészségbiztosítás", "Egészség Útlevél", "külföldi gyógykezelés", "2 millió euró", "betegség"],
-    "body": "Az Egészség Útlevél mockolt Q&A oldala azt magyarázza el, mikor lehet értékes a külföldi gyógykezeléshez kapcsolódó biztosítás: ritkább vagy súlyos betegségek, másodvélemény, korszerű terápia és nagy összegű kezelés esetén. A válasz világos terméklinket és online kötési CTA-t tartalmaz."
+    "tags": [
+      "egészségbiztosítás",
+      "Egészség Útlevél",
+      "külföldi gyógykezelés",
+      "2 millió euró",
+      "betegség"
+    ],
+    "body": "Az Egészség Útlevél mockolt Q&A oldala azt magyarázza el, mikor lehet értékes a külföldi gyógykezeléshez kapcsolódó biztosítás: ritkább vagy súlyos betegségek, másodvélemény, korszerű terápia és nagy összegű kezelés esetén. A válasz világos terméklinket és online kötési CTA-t tartalmaz.",
+    "recommendation_ids": [
+      "R1"
+    ]
   },
   {
     "id": "improved-health-calculator",
@@ -86,8 +163,17 @@
     "pillar": "Actionability",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/egeszsegbiztositas-kalkulator",
-    "tags": ["egészségbiztosítás", "Egészség Útlevél", "kalkulátor", "külföldi gyógykezelés", "másodvélemény"],
-    "body": "A mockolt health calculator 4 kérdésből becsli, hogy az ügyfélnek mennyire releváns a külföldi gyógykezeléshez, másodvéleményhez és nagy értékű kezeléshez kapcsolódó egészségbiztosítás. Az eredmény nem diagnózis, hanem döntéstámogatás: kockázati szint, terméklink, online kötési út és tanácsadói opció."
+    "tags": [
+      "egészségbiztosítás",
+      "Egészség Útlevél",
+      "kalkulátor",
+      "külföldi gyógykezelés",
+      "másodvélemény"
+    ],
+    "body": "A mockolt health calculator 4 kérdésből becsli, hogy az ügyfélnek mennyire releváns a külföldi gyógykezeléshez, másodvéleményhez és nagy értékű kezeléshez kapcsolódó egészségbiztosítás. Az eredmény nem diagnózis, hanem döntéstámogatás: kockázati szint, terméklink, online kötési út és tanácsadói opció.",
+    "recommendation_ids": [
+      "R9"
+    ]
   },
   {
     "id": "improved-entity-schema",
@@ -96,8 +182,17 @@
     "pillar": "Credibility",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/entity-schema",
-    "tags": ["Organization schema", "sameAs", "Wikidata", "NN Group", "NN Biztosító Zrt."],
-    "body": "A mockolt entitásprofil teljes Organization JSON-LD blokkot tartalmaz: név, NN Biztosító Zrt., ország, parentOrganization: NN Group, termékterületek, hivatalos közösségi profilok és sameAs linkek. A Wikidata-stílusú azonosító célja, hogy az AI rendszerek egyértelműen kapcsolják NN magyarországi biztosítói entitását a külső bizonyítékokhoz."
+    "tags": [
+      "Organization schema",
+      "sameAs",
+      "Wikidata",
+      "NN Group",
+      "NN Biztosító Zrt."
+    ],
+    "body": "A mockolt entitásprofil teljes Organization JSON-LD blokkot tartalmaz: név, NN Biztosító Zrt., ország, parentOrganization: NN Group, termékterületek, hivatalos közösségi profilok és sameAs linkek. A Wikidata-stílusú azonosító célja, hogy az AI rendszerek egyértelműen kapcsolják NN magyarországi biztosítói entitását a külső bizonyítékokhoz.",
+    "recommendation_ids": [
+      "R2"
+    ]
   },
   {
     "id": "improved-technical-hygiene",
@@ -106,8 +201,18 @@
     "pillar": "Discoverability",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/geo-hygiene",
-    "tags": ["sitemap", "IndexNow", "FAQPage", "meta description", "llms.txt", "schema"],
-    "body": "A technikai hygiene csomag friss sitemap auditot, IndexNow implementációt, crawler access policy review-t, strukturált adat validációt, meta description cleanupot és alacsony prioritású llms.txt pilotot tartalmaz. A dokumentum hangsúlyozza, hogy ezek támogató jelek, nem garantált AI citation mechanizmusok."
+    "tags": [
+      "sitemap",
+      "IndexNow",
+      "FAQPage",
+      "meta description",
+      "llms.txt",
+      "schema"
+    ],
+    "body": "A technikai hygiene csomag friss sitemap auditot, IndexNow implementációt, crawler access policy review-t, strukturált adat validációt, meta description cleanupot és alacsony prioritású llms.txt pilotot tartalmaz. A dokumentum hangsúlyozza, hogy ezek támogató jelek, nem garantált AI citation mechanizmusok.",
+    "recommendation_ids": [
+      "R3"
+    ]
   },
   {
     "id": "improved-third-party-proof",
@@ -116,8 +221,18 @@
     "pillar": "Credibility",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/third-party-proof",
-    "tags": ["Trustpilot", "Netrisk", "Biztositas.hu", "MNB", "pénzügyi média", "hitelesség"],
-    "body": "A mockolt külső bizonyíték csomag Google Business Profile, review platform, Netrisk.hu, Biztositas.hu, MNB/industry referencia és független pénzügyi médiamegjelenés auditját tartalmazza. A cél, hogy összehasonlító AI promptoknál NN ne csak saját weboldali állításokkal, hanem külső forrásokkal is ellenőrizhető legyen."
+    "tags": [
+      "Trustpilot",
+      "Netrisk",
+      "Biztositas.hu",
+      "MNB",
+      "pénzügyi média",
+      "hitelesség"
+    ],
+    "body": "A mockolt külső bizonyíték csomag Google Business Profile, review platform, Netrisk.hu, Biztositas.hu, MNB/industry referencia és független pénzügyi médiamegjelenés auditját tartalmazza. A cél, hogy összehasonlító AI promptoknál NN ne csak saját weboldali állításokkal, hanem külső forrásokkal is ellenőrizhető legyen.",
+    "recommendation_ids": [
+      "R5"
+    ]
   },
   {
     "id": "improved-calculator-benchmark",
@@ -126,8 +241,18 @@
     "pillar": "Credibility",
     "status": "third_party_example",
     "source_url": "https://www.progressive.com/answers/life-insurance-calculator/",
-    "tags": ["benchmark", "life insurance calculator", "health insurance calculator", "retirement calculator", "conversion"],
-    "body": "Nemzetközi benchmarkok alapján a jó biztosítási kalkulátor nem csak díjat mutat: összegyűjti a családi, jövedelmi és kötelezettség-adatokat, becslést ad a szükséges fedezetre, majd konkrét quote, agent vagy guide next stepre terel. Ez igaz az életbiztosítási fedezetkalkulátorokra és egészségbiztosítási költség/eligibility kalkulátorokra is."
+    "tags": [
+      "benchmark",
+      "life insurance calculator",
+      "health insurance calculator",
+      "retirement calculator",
+      "conversion"
+    ],
+    "body": "Nemzetközi benchmarkok alapján a jó biztosítási kalkulátor nem csak díjat mutat: összegyűjti a családi, jövedelmi és kötelezettség-adatokat, becslést ad a szükséges fedezetre, majd konkrét quote, agent vagy guide next stepre terel. Ez igaz az életbiztosítási fedezetkalkulátorokra és egészségbiztosítási költség/eligibility kalkulátorokra is.",
+    "recommendation_ids": [
+      "R5",
+      "R9"
+    ]
   },
   {
     "id": "improved-hungarian-competitor-benchmark",
@@ -136,8 +261,19 @@
     "pillar": "Credibility",
     "status": "third_party_example",
     "source_url": "https://www.generali.hu/home/Elethelyzet_programok/Ezustkor_nyugdijprogram/Nyugdijkalkulator.aspx",
-    "tags": ["Generali", "Allianz", "UNIQA", "kalkulátor", "online kötés", "visszahívás"],
-    "body": "Magyar benchmarkoknál látható, hogy több versenytárs explicit next-step CTA-kat használ: nyugdíjszámítás és visszahívás, online díjkalkuláció, online kötés, tanácsadó-kereső vagy személyes találkozó. A GEO demo ezt azért emeli be, mert AI válaszban a konkrét linkelt következő lépés erősebb jel, mint a puszta brand említés."
+    "tags": [
+      "Generali",
+      "Allianz",
+      "UNIQA",
+      "kalkulátor",
+      "online kötés",
+      "visszahívás"
+    ],
+    "body": "Magyar benchmarkoknál látható, hogy több versenytárs explicit next-step CTA-kat használ: nyugdíjszámítás és visszahívás, online díjkalkuláció, online kötés, tanácsadó-kereső vagy személyes találkozó. A GEO demo ezt azért emeli be, mert AI válaszban a konkrét linkelt következő lépés erősebb jel, mint a puszta brand említés.",
+    "recommendation_ids": [
+      "R5",
+      "R9"
+    ]
   },
   {
     "id": "improved-ai-finance-study",
@@ -146,8 +282,18 @@
     "pillar": "Authority",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/ai-penzugyi-dontesek-kutatas",
-    "tags": ["AI", "pénzügyi döntés", "bizalom", "kutatás", "Magyarország", "NN"],
-    "body": "Az NN mockolt saját kutatása azt vizsgálja, hogyan használják a magyarok az AI-t pénzügyi kérdésekben, mennyire bíznak az AI által adott ajánlásokban, és mikor igényelnek emberi validációt. A riport citable assetként pozicionálja NN-t az AI és pénzügyi döntéshozatal magyar diskurzusában."
+    "tags": [
+      "AI",
+      "pénzügyi döntés",
+      "bizalom",
+      "kutatás",
+      "Magyarország",
+      "NN"
+    ],
+    "body": "Az NN mockolt saját kutatása azt vizsgálja, hogyan használják a magyarok az AI-t pénzügyi kérdésekben, mennyire bíznak az AI által adott ajánlásokban, és mikor igényelnek emberi validációt. A riport citable assetként pozicionálja NN-t az AI és pénzügyi döntéshozatal magyar diskurzusában.",
+    "recommendation_ids": [
+      "R6"
+    ]
   },
   {
     "id": "improved-wikipedia-path",
@@ -156,8 +302,17 @@
     "pillar": "Authority",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/wikipedia-authority-path",
-    "tags": ["Wikipedia", "Wikidata", "független forrás", "notability", "MNB"],
-    "body": "A Wikipedia authority path nem gyors marketingfeladatként kezeli a Wikipedia jelenlétet. A mock roadmap független sajtóforrásokat, iparági adatokat, MNB vagy szakmai referenciákat és semleges hivatkozásokat gyűjt, majd csak később mérlegel neutrális Wikipedia draftot."
+    "tags": [
+      "Wikipedia",
+      "Wikidata",
+      "független forrás",
+      "notability",
+      "MNB"
+    ],
+    "body": "A Wikipedia authority path nem gyors marketingfeladatként kezeli a Wikipedia jelenlétet. A mock roadmap független sajtóforrásokat, iparági adatokat, MNB vagy szakmai referenciákat és semleges hivatkozásokat gyűjt, majd csak később mérlegel neutrális Wikipedia draftot.",
+    "recommendation_ids": [
+      "R8"
+    ]
   },
   {
     "id": "improved-personalization",
@@ -166,7 +321,35 @@
     "pillar": "Actionability",
     "status": "mocked_future_asset",
     "source_url": "https://www.nn.hu/mock/personalization-pilot",
-    "tags": ["personalization", "next best action", "CRM", "advisor handoff", "élethelyzet"],
-    "body": "A hosszabb távú personalization pilot életkor, családi helyzet, pénzügyi cél és kalkulátor output alapján személyre szabott next-best-action javaslatot ad. A rendszer guide-ot, kalkulátort, ajánlatkérést vagy tanácsadói handoffot javasol, majd méri a lead quality és conversion mutatókat."
+    "tags": [
+      "personalization",
+      "next best action",
+      "CRM",
+      "advisor handoff",
+      "élethelyzet"
+    ],
+    "body": "A hosszabb távú personalization pilot életkor, családi helyzet, pénzügyi cél és kalkulátor output alapján személyre szabott next-best-action javaslatot ad. A rendszer guide-ot, kalkulátort, ajánlatkérést vagy tanácsadói handoffot javasol, majd méri a lead quality és conversion mutatókat.",
+    "recommendation_ids": [
+      "R10"
+    ]
+  },
+  {
+    "id": "improved-controlled-ab-workflow",
+    "title": "Controlled A/B evidence workflow",
+    "type": "dashboard",
+    "pillar": "Measurement",
+    "status": "mocked_future_asset",
+    "source_url": "local-controlled-ab-workflow",
+    "tags": [
+      "controlled A/B",
+      "48 prompt",
+      "három modell",
+      "Excel evidence",
+      "mérés"
+    ],
+    "recommendation_ids": [
+      "R4"
+    ],
+    "body": "A controlled A/B evidence workflow ugyanazt a 48 promptot futtatja le current és improved forráskörnyezetben, OpenAI, Gemini és Claude modellekkel. A cél nem live public ranking állítása, hanem annak mérése, hogy az actionable recommendationök javítják-e az NN válaszminőséget, idézhetőséget és következő lépésre vezetést."
   }
 ]

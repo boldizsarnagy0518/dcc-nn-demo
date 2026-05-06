@@ -9,25 +9,43 @@ PROVIDERS = {
         "label": "ChatGPT / OpenAI",
         "env_key": "OPENAI_API_KEY",
         "env_model": "OPENAI_MODEL",
-        "default_model": "gpt-4.1-mini",
+        "default_model": "gpt-5.2",
     },
     "gemini": {
         "label": "Gemini",
         "env_key": "GEMINI_API_KEY",
         "env_model": "GEMINI_MODEL",
-        "default_model": "gemini-2.5-flash",
+        "default_model": "gemini-3-pro-preview",
     },
     "claude": {
         "label": "Claude",
         "env_key": "ANTHROPIC_API_KEY",
         "env_model": "ANTHROPIC_MODEL",
-        "default_model": "claude-3-5-haiku-latest",
+        "default_model": "claude-sonnet-4-20250514",
     },
     "openrouter": {
         "label": "OpenRouter",
         "env_key": "OPENROUTER_API_KEY",
         "env_model": "OPENROUTER_MODEL",
         "default_model": "google/gemma-4-31b-it:free",
+    },
+    "openrouter_openai": {
+        "label": "OpenRouter / GPT",
+        "env_key": "OPENROUTER_API_KEY",
+        "env_model": "OPENROUTER_OPENAI_MODEL",
+        "default_model": "openai/gpt-5.2",
+    },
+    "openrouter_gemini": {
+        "label": "OpenRouter / Gemini",
+        "env_key": "OPENROUTER_API_KEY",
+        "env_model": "OPENROUTER_GEMINI_MODEL",
+        "default_model": "google/gemini-3-pro-preview",
+    },
+    "openrouter_claude": {
+        "label": "OpenRouter / Claude",
+        "env_key": "OPENROUTER_API_KEY",
+        "env_model": "OPENROUTER_CLAUDE_MODEL",
+        "default_model": "anthropic/claude-sonnet-4.6",
     },
 }
 
@@ -171,11 +189,12 @@ def call_claude(prompt):
     raise ProviderError("Claude response did not contain text output")
 
 
-def call_openrouter(prompt):
+def call_openrouter(prompt, provider_id="openrouter"):
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
         raise ProviderError("OPENROUTER_API_KEY is not configured")
-    model = os.getenv("OPENROUTER_MODEL", PROVIDERS["openrouter"]["default_model"])
+    config = PROVIDERS[provider_id]
+    model = os.getenv(config["env_model"], config["default_model"])
     payload = {
         "model": model,
         "temperature": 0.2,
@@ -225,8 +244,8 @@ def call_provider(provider_id, prompt):
         return call_gemini(prompt)
     if provider_id == "claude":
         return call_claude(prompt)
-    if provider_id == "openrouter":
-        return call_openrouter(prompt)
+    if provider_id.startswith("openrouter"):
+        return call_openrouter(prompt, provider_id=provider_id)
     raise ProviderError(f"Unknown provider: {provider_id}")
 
 
@@ -239,6 +258,9 @@ def mock_answer(provider_id, user_prompt, sources, corpus_mode):
         "gemini": "Összehasonlító válasz",
         "claude": "Óvatos, döntéstámogató válasz",
         "openrouter": "OpenRouter válasz",
+        "openrouter_openai": "OpenRouter GPT válasz",
+        "openrouter_gemini": "OpenRouter Gemini válasz",
+        "openrouter_claude": "OpenRouter Claude válasz",
     }.get(provider_id, "Válasz")
 
     if corpus_mode == "current":
