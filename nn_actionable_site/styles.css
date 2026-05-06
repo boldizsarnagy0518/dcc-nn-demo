@@ -32,8 +32,19 @@ body {
   letter-spacing: 0;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 a {
   color: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
 }
 
 button,
@@ -1339,19 +1350,93 @@ cite {
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 620px), (max-device-width: 620px) {
+  *,
+  *::before,
+  *::after {
+    min-width: 0;
+  }
+
   main {
-    width: min(100vw - 22px, 1180px);
+    width: calc(100vw - 22px);
+    max-width: 100%;
   }
 
   .site-header {
     padding: 12px;
   }
 
+  .top-strip div,
+  .nav-shell {
+    width: calc(100vw - 22px);
+    max-width: 100%;
+  }
+
+  .page,
+  .page.active,
+  .nn-hero,
+  .hero-card,
+  .hero-copy,
+  .page-head,
+  .calculator,
+  .result-card,
+  .answer-block,
+  .home-reasons,
+  .calculator-section,
+  .rewrite-page,
+  .identity-card,
+  .trust-grid article,
+  .rewrite-why,
+  .rewrite-column,
+  .roadmap-item,
+  .support-list article,
+  .document-filter,
+  .document-table,
+  .search-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .top-strip div,
+  nav {
+    gap: 12px;
+  }
+
   nav a {
     min-height: 34px;
     padding: 7px 8px;
     font-size: 0.85rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  li,
+  strong,
+  span,
+  summary,
+  a,
+  button,
+  label {
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  h1 {
+    max-width: 100%;
+    font-size: 1.72rem;
+    line-height: 1.08;
+  }
+
+  .hero-card h1,
+  .page-head h1 {
+    max-width: 100%;
+    font-size: 1.72rem;
+  }
+
+  .brand-image {
+    width: 76px;
   }
 
   .hero-copy,
@@ -1369,6 +1454,22 @@ cite {
   .rewrite-column,
   .roadmap-item {
     padding: 18px;
+  }
+
+  .nn-hero {
+    min-height: auto;
+    padding: 18px;
+    align-items: end;
+  }
+
+  .hero-card {
+    padding: 22px;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px;
   }
 
   .decision-strip,
@@ -1390,6 +1491,31 @@ cite {
   .search-row,
   dl div {
     grid-template-columns: 1fr;
+  }
+
+  .before-after strong,
+  .rewrite-column strong,
+  .decision-strip strong,
+  .primary-action,
+  .secondary-action,
+  .outline-action {
+    max-width: 100%;
+    width: 100%;
+    white-space: normal;
+  }
+
+  .decision-strip div,
+  .before-after div,
+  .rewrite-column strong,
+  .qa-list summary,
+  .content-tabs a {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .content-tabs {
+    overflow-x: auto;
+    scrollbar-width: thin;
   }
 
   dd {
